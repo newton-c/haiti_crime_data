@@ -1,4 +1,6 @@
 library(ICplots)
+library(packcircles)
+library(ggiraph)
 
 theme_set(theme_ic())
 
@@ -54,3 +56,41 @@ idps_ts_plot <- ggplot(subset(idps_la, name == "Haiti"& year != 2023),
 idps_ts_plot
 
 # circle plot
+idps_la_22 <- filter(idps_la, year == 2022)
+packing <- circleProgressiveLayout(abs(idps_la_22$change_internal_dispalcements),
+                                   sizetype = "area")
+
+data <- cbind(idps_la_22, packing)
+
+dat.gg <- circleLayoutVertices(packing, npoints=50)
+
+# Make the plot
+packed_circle_plot <- ggplot() + 
+  # Make the bubbles
+  geom_polygon(data = dat.gg, aes(x, y, group = id,
+                                  #fill = ifelse(name %in% c("Haiti", "Colombia"),
+                                  #              "red", "green")),
+                                  fill = ifelse(id %in% c(2, 5),
+                                                "Increase in IDPs",
+                                                "Decrease in IDPs")),
+               alpha = 0.9) +
+  
+  # Add text in the center of each bubble + control its size
+  geom_text(data = data, aes(x, y, size = abs(change_internal_dispalcements),
+                             label = paste0(name, "\n",
+                                           round(change_internal_dispalcements),
+                                           "%")),
+            family = "Roboto Bold") +
+  scale_size_continuous(range = c(1, 4), breaks = c(100, 400)) +
+  labs(title = "Change in Internally Displaced People in Latin America",
+       subtitle = "2021-2022",
+       fill = "Change in IDPs\n2021-2022",
+       size = "% Change in IDPs\n2021-2022") +
+  # General theme:
+  theme_void() + 
+  theme(plot.title = element_text(family = "Roboto Black", size = 24),
+        plot.subtitle = element_text(family = "Roboto", size = 18),
+        legend.position = "top") +
+  scale_fill_manual(values = c("darkgreen", "darkred")) +
+  coord_equal()
+packed_circle_plot
