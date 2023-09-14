@@ -107,7 +107,7 @@ packed_circle_plot
 hunger <- tibble(year = c(2023, 2022, 2021, 2020, 2019),
                  phase_4 = c(1807955, 1317626, 1156915, 1203282, 517129))
 
-ggplot(hunger, aes(x = year, y = phase_4)) +
+hunger_plot <- ggplot(hunger, aes(x = year, y = phase_4)) +
   geom_line(linewidth = 1) +
   geom_point(data = subset(hunger, year == 2023)) +
   geom_text(data = subset(hunger, year == 2023),
@@ -125,3 +125,4 @@ ggplot(hunger, aes(x = year, y = phase_4)) +
   hline +
   xlab("") +
   ylab("# of People")
+hunger_plot
