@@ -126,3 +126,10 @@ hunger_plot <- ggplot(hunger, aes(x = year, y = phase_4)) +
   xlab("") +
   ylab("# of People")
 hunger_plot
+
+
+# Gang violence ---------------------------------------------------------------
+ggplot(data = subset(acled, grepl("Gang", actor1) == TRUE),
+       aes(x = event_date, y = fatalities)) +
+  geom_line(group = 1)
+
