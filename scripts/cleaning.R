@@ -1,6 +1,7 @@
 library(tidyverse)
 library(readxl)
 library(ICplots)
+library(jsonlite)
 
 theme_set(theme_ic())
 
@@ -74,3 +75,7 @@ crime <- read_csv("data/haiti_crime_stats.csv") %>%
                names_to = "year", values_to = "count") %>%
   mutate(year = as.numeric(str_extract(year, "[0-9]+")))
 
+# Hunger data for tree plot
+hunger <- read_csv("data/ipc_haiti - Count.csv")
+hungerJSON <- toJSON(hunger)
+hungerJSON

@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-h1 {
-  font-family: "Roboto Black";
-}
-h2 {
-  font-family: "Roboto";
-}
-p {
-  font-family: "Roboto";
-  width: 640px;
-  text-align: left;
-}
-</style>
+  <script src="https://d3js.org/d3.v6.js"></script>
 </head>
+<link rel="stylesheet" href="scripts/haiti.css">
 <body>
     <center>
     <h1>The Human Costs of the Crisis in Haiti</h1>
-    <p>Children around Haiti are supposed to be returning to their classrooms, but there is the problem: the schools are already full. But not of students. As gang violence has caused massive displacement in Haïti, people have flooded schools looking for shelter, and refugees in their own country. 
+    <p>Children around Haiti are supposed to be returning to their classrooms, but there is the problem: the schools are already full.
+       But not of students. As gang violence has caused massive displacement in Haiti, people have flooded schools looking for shelter as
+        refugees in their own country. 
     </p>
-
-    <p>The number of internally displaced people due to conflict in Haiti rose 430% from 2021
+    <p>The number of Haitians internally displaced due to conflicts rose 430% from 2021
       to 2022 -- the largest increase the region has witnessed since
       data started being collected in 2018. With 106,000 people
-      displace in 2022, Haiti saw more displacements that larger
+      displace in 2022, Haiti saw more displacements than larger
       countries with potent criminal groups, such as Brazil and Mexico, have experienced in recent
       years.</p>
       <img src="figs/idps.png" style="width:600px;height:450px">
-      <p>This increase buck's the regional trend; most countries in Latin America and the Caribbean
+      <p>This increase bucks the regional trend; most countries in Latin America and the Caribbean
         saw fewer people internally displaced last year.
      </p>
      <img src="figs/idp_circles.png" style="width:600px;height:450px">
@@ -38,6 +28,9 @@ p {
       to intimidate civilians into cooperating.
     </p>
     <p style="text-align: center"><i>[QUOTE ON GANG VIOLENCE AND DISPLACEMENT]</i></p>
+    <div id="hom_line"></div>
+    <script src="scripts/hom_line.js"> </script>
+
     <img src="figs/homicides.png" style="width:600px;height:450px">
     <p> Much of the violence is concetrated in Haiti's most underdeveloped areas,
       such as the Port-au-Prince suburb, Cité Soleil.</p>
@@ -64,6 +57,12 @@ p {
         cases of the disease which is nearly absent from the rest of Latin America
         and the Caribbean.
         </p>
+
+    <p>
+      The medical crises is exacerbated by a lack available medical care. Fearing for their lives amid the gang
+      violence, doctors and patients have <a href="https://www.lenouvelliste.com/article/244226/les-balles-font-fuir-malades-et-medecins-du-sanatorium-de-port-au-prince">abandoned a hospital</a> 
+      in Port-au-Price's Carrefour-Feuilles.
+    </p>
 
     <p>
       As gangs fight for control, they have turned to the most horrid of tactics. Gangs have begun the 

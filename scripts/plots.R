@@ -9,12 +9,14 @@ crimes_plot <- ggplot(crime, aes(x = year, y = count, color = Measure)) +
   hline
 crimes_plot
 
-hom_plot <- ggplot(subset(crime, Measure == "Homicides"),
+hom_plot_data <- filter(crime, Measure == "Homicides")
+#write_csv(hom_plot_data, "data/hom_plot_data.csv")
+hom_plot <- ggplot(hom_plot_data,
                    aes(x = year, y = count)) +
-  geom_point(subset(crime, Measure == "Homicides" & year == 2022),
+  geom_point(subset(hom_plot_data, year == 2022),
                    mapping = aes(x = year, y = count)) +
   geom_line(linewidth = 1) +
-  geom_text(subset(crime, Measure == "Homicides" & year == 2022),
+  geom_text(subset(hom_plot_data, year == 2022),
                    mapping = aes(x = year - .2, y = count - 500),
             label = "91% increase in\nhomicides\n2019-2022",
             family = "Roboto Black") +

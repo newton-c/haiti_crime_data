@@ -1,0 +1,15 @@
+{"children":[
+    {"name":"Artibonite","children":[
+        {"name":"Phase 1","value":395148},
+        {"name":"Phase 2","value":403714},
+        {"name":"Phase 3","value":466771},
+        {"name":"Phase 4","value":223347}],
+        "colname":"level2"},   
+    {"name":"Carrefour","children":[
+        {"name":"Phase 1","value":102998},
+        {"name":"Phase 2", "value":102998},
+        {"name":"Phase 3", "value":102998},
+        {"name":"Phase 4", "value":34333}],
+        "colname":"level2"}],
+        "name":"TEXT"}
+//    {"name":"Centre","name":"Phase 1","value":230357,"name":"Phase 2", "value":194977,"name":"Phase 3", "value":212280,"name":"Phase 4", "value":69986},{"name":"Cite Soleil","name":"Phase 1","value":76825,"Phase 2":96031,"Phase 3":134443,"Phase 4":76825},{"name":"Croix des Bouquets","name":"Phase 1","value":19501,"Phase 2":19501,"Phase 3":27302,"Phase 4":11701},{"name":"Delmas","name":"Phase 1","value":107318,"Phase 2":107318,"Phase 3":107318,"Phase 4":35773},{"name":"Grand-Anse","name":"Phase 1","value":100608,"Phase 2":94898,"Phase 3":148970,"Phase 4":119417},{"name":"Nippes","name":"Phase 1","value":97702,"Phase 2":105597,"Phase 3":89806,"Phase 4":32567},{"name":"Nord","name":"Phase 1","value":284084,"Phase 2":255901,"Phase 3":194800,"Phase 4":63355},{"name":"Nord-Est","name":"Phase 1","value":98492,"Phase 2":137888,"Phase 3":118190,"Phase 4":39397},{"name":"Nord-Ouest","name":"Phase 1","value":182276,"Phase 2":165771,"Phase 3":182276,"Phase 4":77264},{"name":"Ouest","name":"Phase 1","value":352703,"Phase 2":424897,"Phase 3":387273,"Phase 4":245938},{"name":"Petion-Ville","name":"Phase 1","value":42224,"Phase 2":50669,"Phase 3":50669,"Phase 4":25335},{"name":"Port au Prince","name":"Phase 1","value":238865,"Phase 2":238865,"Phase 3":286638,"Phase 4":191092},{"name":"Sud","name":"Phase 1","value":230856,"Phase 2":235586,"Phase 3":248748,"Phase 4":92033},{"name":"Sud-Est","name":"Phase 1","value":175136,"Phase 2":175136,"Phase 3":175136,"Phase 4":58379},{"name":"Tabarre","name":"Phase 1","value":7889,"Phase 2":7889,"Phase 3":11045,"Phase 4":4733}]}
