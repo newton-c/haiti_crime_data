@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="hom_line"></div>
+<div></div>
+<div id="hunger_circles"></div>
+<style>
+   .tooltip {
+    position: absolute;
+   }
+</style>
+
+<script>
+
+      // set the dimensions and margins of the graph
+      const margin = {top: 30, right: 30, bottom: 60, left: 60},
+          width = 640 - margin.left - margin.right,
+          height = 450 - margin.top - margin.bottom;
+      
+      // append the svg object to the body of the page
+      const svg = d3.select("#hom_line")
+        .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+          .attr("transform",`translate(${margin.left},${margin.top})`);
+      
+      //Read the data
+      d3.csv("https://raw.githubusercontent.com/newton-c/haiti_crime_data/main/data/hom_plot_data.csv",
+      
+        // When reading the csv, I must format variables:
+        d => {
+            return {date : d.year, value : d.count}}).then(
+      
+        // Now I can use this dataset:
+        function(data) {
+      
+          // Add X axis --> it is a date format
+          const x = d3.scaleLinear()
+            .domain(d3.extent(data, d => d.date))
+            .range([ 0, width ]);
+          svg.append("g")
+            .attr("class", "x-axis")
+            .attr("transform", `translate(0, ${height})`)
+            .call(d3.axisBottom(x)
+            .tickSizeInner(3)
+            .tickSizeOuter(0)
+            .tickValues([2019, 2020, 2021, 2022])
+            .ticks(4, "")); // format the numbers so there's no decimal or comma
+      
+          // Add Y axis
+          const y = d3.scaleLinear()
+            .domain(d3.extent(data, d => d.value))
+            .range([ height, 0 ]);
+          svg.append("g")
+            .attr("class", "y-axis")
+            .call(d3.axisLeft(y)
+            .tickSizeInner(-width)
+            .tickSizeOuter(0));
+      
+          // Add the line
+          svg.append("path")
+            .datum(data)
+            .attr("fill", "none")
+            .attr("stroke", "#3B3B3B")
+            .attr("stroke-width", 3)
+            .attr("d", d3.line()
+              .x(d => x(d.date))
+              .y(d => y(d.value))
+              )
+              svg.append('text')
+              .attr('class', 'plot-title')
+              .text('Homicides in Haiti')
+  
+          svg.append('rect')
+              .attr('x', '445')
+              .attr('y', '115')
+              .attr('height', '60')
+              .attr('width', '90')
+              .attr('fill', 'white')
+  
+          svg.append('text')
+              .attr('class', 'annotations')
+              .attr('x', '450')
+              .attr('y', '130')
+              .text('91% increase')
+  
+          svg.append('text')
+              .attr('class', 'annotations')
+              .attr('x', '450')
+              .attr('y', '150')
+              .text('in homicides')
+  
+          svg.append('text')
+              .attr('class', 'annotations')
+              .attr('x', '450')
+              .attr('y', '170')
+              .text('2019-2022')
+  // footer
+  svg.append("text") // source
+      .attr('class', 'sources')
+      .attr("x", -40)
+      .attr("y", 410)
+      .html("Source: <a href='https://www.unodc.org/documents/data-and-analysis/toc/Haiti_assessment_UNODC.pdf'>UNODC</a>")
+  
+  svg.append("text") // IC logo
+      .attr('class', 'ic-logo')
+      .attr("x", 550)
+      .attr("y", 410)
+      .text('insightcrime.org')
+      
+          // create a tooltip
+          const Tooltip = d3.select("#hom_line")
+            .append("div")
+            .style("opacity", 0)
+            .attr("class", "tooltip")
+            .style("background-color", "white")
+            .style("border", "solid")
+            .style("border-width", "2px")
+            .style("border-radius", "5px")
+            .style("padding", "5px")
+            .style("width", "200px")
+      
+            // Three function that change the tooltip when user hover / move / leave a cell
+            const mouseover = function(event,d) {
+              Tooltip
+                .style("opacity", 1)
+            }
+            const mousemove = function(event,d) {
+              Tooltip
+                .style("left", `${event.layerX+10}px`)
+                .style("top", `${event.layerY}px`)
+                .html("Homicides: " + d.value + "<br>" +
+                      "Year: " + d.date)
+            }
+            const mouseleave = function(event,d) {
+              Tooltip
+                .style("opacity", 0)
+            }
+      
+      
+      
+          // Add the points
+          svg
+            .append("g")
+            .selectAll("dot")
+            .data(data)
+            .join("circle")
+              .attr("class", "myCircle")
+              .attr("cx", d => x(d.date))
+              .attr("cy", d => y(d.value))
+              .attr("r", 4)
+              .attr("stroke", "#3B3B3B")
+              .attr("stroke-width", 3)
+              .attr("fill", "#FAFAFA")
+              .on("mouseover", mouseover)
+              .on("mousemove", mousemove)
+              .on("mouseleave", mouseleave)
+
+        
+      })
+</script>
+<script> 
+    // set the dimensions and margins of the graph
+    const width2 = 640
+    const height2 = 640
+    
+    // append the svg2 object to the body of the page
+    const svg2 = d3.select("#hunger_circles")
+      .append("svg")
+        .attr("width2", width2)
+        .attr("height2", height2)
+    
+    // Read data
+    //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/11_SevCatOneNumNestedOneObsPerGroup.csv").then( function(data) {
+    d3.csv("data/Phase4Percent.csv").then( function(data) {
+    
+      // Filter a bit the data -> more than 1 million inhabitants
+     // data = data.filter(function(d){ return d.value>10000000 })
+    
+      // Color palette for continents?
+     // const color = d3.scaleOrdinal()
+     //   .domain(["Asia", "Europe", "Africa", "Oceania", "Americas"])
+     //   .range(d3.schemeSet1);
+    
+      // Size scale for countries
+      const size = d3.scaleLinear()
+        .domain([0, 40])
+        .range([7,100])  // circle will be between 7 and 55 px wide
+    
+      // create a tooltip
+      const Tooltip = d3.select("#hunger_circles")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width2", "2px")
+        .style("border-radius", "5px")
+        .style("padding", "5px")
+    
+      // Three function that change the tooltip when user hover / move / leave a cell
+      const mouseover = function(event, d) {
+        Tooltip
+          .style("opacity", 1)
+      }
+      const mousemove = function(event, d) {
+        Tooltip
+          .html('<u>' + d.region + '</u>' + "<br>" + d.value + "% Phase 4 Hunger")
+          .style("left", (event.x/2+20) + "px")
+          .style("top", (event.y/2-30) + "px")
+      }
+      var mouseleave = function(event, d) {
+        Tooltip
+          .style("opacity", 0)
+      }
+    
+      // Initialize the circle: all located at the center of the svg2 area
+      var node = svg2.append("g")
+        .selectAll("circle")
+        .data(data)
+        .join("circle")
+          .attr("class", "node")
+          .attr("r", d => size(d.value))
+          .attr("cx", width2 / 2)
+          .attr("cy", height2 / 2)
+         // .style("fill", d => color(d.region))
+          .style("fill-opacity", 0.8)
+          .attr("stroke", "black")
+          .style("stroke-width2", 1)
+          .on("mouseover", mouseover) // What to do when hovered
+          .on("mousemove", mousemove)
+          .on("mouseleave", mouseleave)
+          .call(d3.drag() // call specific function when circle is dragged
+               .on("start", dragstarted)
+               .on("drag", dragged)
+               .on("end", dragended));
+    
+      // Features of the forces applied to the nodes:
+      const simulation = d3.forceSimulation()
+          .force("center", d3.forceCenter().x(width2 / 2).y(height2 / 2)) // Attraction to the center of the svg2 area
+          .force("charge", d3.forceManyBody().strength(.1)) // Nodes are attracted one each other of value is > 0
+          .force("collide", d3.forceCollide().strength(.2).radius(function(d){ return (size(d.value)+3) }).iterations(1)) // Force that avoids circle overlapping
+    
+      // Apply these forces to the nodes and update their positions.
+      // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
+      simulation
+          .nodes(data)
+          .on("tick", function(d){
+            node
+                .attr("cx", d => d.x)
+                .attr("cy", d => d.y)
+          });
+    
+      // What happens when a circle is dragged?
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(.03).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(.03);
+        d.fx = null;
+        d.fy = null;
+      }
+    
+    })
+    
+    </script>
