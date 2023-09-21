@@ -13,8 +13,7 @@
         .attr("height", height2)
     
     // Read data
-    //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/11_SevCatOneNumNestedOneObsPerGroup.csv").then( function(data) {
-    d3.csv("data/Phase4Percent.csv").then( function(data) {
+    d3.csv("https://raw.githubusercontent.com/newton-c/haiti_crime_data/main/data/Phase4Percent.csv").then( function(data) {
     
       // Filter a bit the data -> more than 1 million inhabitants
      // data = data.filter(function(d){ return d.value>10000000 })
