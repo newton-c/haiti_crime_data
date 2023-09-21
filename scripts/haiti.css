@@ -101,3 +101,12 @@ p {
     font-family: 'Roboto';
     position: absolute;
 }
+
+
+.node {
+    stroke-width: 2;
+}
+
+.node:hover {
+    stroke-width: 5;
+}
