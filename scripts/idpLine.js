@@ -101,7 +101,7 @@
       .attr('class', 'sources')
       .attr("x", -40)
       .attr("y", 380)
-      .html("Source: <a href=' https://www.internal-displacement.org/database/displacement-data'>IDMC</a>")
+      .html("Source: <a href='https://www.internal-displacement.org/database/displacement-data' style='fill:#0000E9; text-decoration: underline'>IDMC</a>")
   
   svgIL.append("text") // IC logo
       .attr('class', 'ic-logo')

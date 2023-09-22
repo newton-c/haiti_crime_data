@@ -95,7 +95,7 @@
       .attr('class', 'sources')
       .attr("x", -40)
       .attr("y", 380)
-      .html("Source: <a href='https://www.unodc.org/documents/data-and-analysis/toc/Haiti_assessment_UNODC.pdf'>UNODC</a>")
+      .html("Source: <a href='https://www.unodc.org/documents/data-and-analysis/toc/Haiti_assessment_UNODC.pdf' style='fill:#0000E9; text-decoration: underline'>UNODC</a>")
   
   svg.append("text") // IC logo
       .attr('class', 'ic-logo')

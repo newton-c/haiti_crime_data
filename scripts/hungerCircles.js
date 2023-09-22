@@ -148,7 +148,7 @@ svgHC.append('text')
   .attr('class', 'sources')
   .attr("x", 0)
   .attr("y", 590)
-  .html("Source: <a href='https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156571/?iso3=HTI'>Integrated Food Security Phase Classification</a>")
+  .html("Source: <a href='https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156571/?iso3=HTI' style='fill:#0000E9; text-decoration: underline'>Integrated Food Security Phase Classification</a>")
 
 svgHC.append("text") // IC logo
   .attr('class', 'ic-logo')
