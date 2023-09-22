@@ -1,6 +1,9 @@
 library(ICplots)
 library(packcircles)
 library(ggiraph)
+library(treemap)
+library(treemapify)
+library(d3treeR)
 
 theme_set(theme_ic())
 
@@ -135,3 +138,34 @@ ggplot(data = subset(acled, grepl("Gang", actor1) == TRUE),
        aes(x = event_date, y = fatalities)) +
   geom_line(group = 1)
 
+
+# Hunger tree plot ------------------------------------------------------------
+hunger_long <- hunger %>%
+  pivot_longer(cols = `Phase 1`:`Phase 4`, names_to = "phase", values_to = "pop")
+
+p <- treemap(hunger_long,
+             index=c("name","phase"),
+             vSize="pop",
+             type="index",
+             palette = "Set2",
+             bg.labels=c("white"),
+             align.labels=list(
+               c("center", "center"), 
+               c("right", "bottom")
+             ),
+             scale_fill_manual(c("red", "yellow", "orange", "green"))
+)            
+p
+
+ggplot(data = hunger_long,
+       aes(area = pop, label = paste(phase, pop, sep = "\n"),
+                                     fill = phase, subgroup = name)) +
+  geom_treemap() +
+  scale_fill_manual(values = c("#DAFACE", "#F4E43E", "#CD771C", "#AA0100")) +
+  geom_treemap_subgroup_border(colour = "#3B3B3B", size = 5) +
+  geom_treemap_text(colour = "#3B3B3B") +
+  geom_treemap_subgroup_text(place = "centre", grow = TRUE,
+                             alpha = .25) +
+  theme(legend.position = "none")
+
+inter <- d3tree2( p ,  rootname = "General" )
