@@ -1,6 +1,6 @@
 
       // set the dimensions and margins of the graph
-      const marginKL = {top: 30, right: 30, bottom: 60, left: 60},
+      const marginKL = {top: 60, right: 30, bottom: 60, left: 60},
           widthKL = 640 - marginKL.left - marginKL.right,
           heightKL = 450 - marginKL.top - marginKL.bottom;
       
@@ -57,6 +57,7 @@
               )
               svgKL.append('text')
               .attr('class', 'plot-title')
+              .attr('y', '-30')
               .text('Kidnappings in Haiti')
   
           svgKL.append('rect')
@@ -83,6 +84,13 @@
               .attr('x', '450')
               .attr('y', '170')
               .text('2019-2022')
+
+        svgKL.append('text')
+            .attr('class', 'interactive-note')
+            .attr('x', '550')
+            .attr('y', '-30')
+            .text('Hover over the circles')
+
   // footer
   svgKL.append("text") // source
       .attr('class', 'sources')

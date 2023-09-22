@@ -2,7 +2,7 @@
     // set the dimensions and margins of the graph
     const marginHC = {top: 80, right: 30, bottom: 60, left: 30},
           width2 = 640 - marginHC.left - marginHC.right,
-          height2 = 700 - marginHC.top - marginHC.bottom;
+          height2 = 800 - marginHC.top - marginHC.bottom;
     //const width2 = 640
    // const height2 = 450
     
@@ -113,24 +113,36 @@ svgHC.append('text')
     .attr('class', 'plot-title')
     .attr('x', 0)
     .attr('y', 20)
-    .text('Percentage of Haitians Living in Phase 4 Hunger')
+    .text('Percentage of Haitians Living')
+
+svgHC.append('text')
+    .attr('class', 'plot-title')
+    .attr('x', 0)
+    .attr('y', 50)
+    .text('in Phase 4 Hunger')
+
 svgHC.append('text')
     .attr('class', 'plot-subtitle')
     .attr('x', 0)
-    .attr('y', 50)
+    .attr('y', 80)
     .text('The IPC defines Phase 4 hunger as when households have such a severe')
 
 svgHC.append('text')
     .attr('class', 'plot-subtitle')
     .attr('x', 0)
-    .attr('y', 70)
+    .attr('y', 100)
     .text('lack of food, that acute malnutrition sets in, or households avoid acute')
 svgHC.append('text')
     .attr('class', 'plot-subtitle')
     .attr('x', 0)
-    .attr('y', 90)
+    .attr('y', 120)
     .text('malnutrition through unsustainable emergency measures.')
 
+  svgHC.append('text')
+    .attr('class', 'interactive-note')
+    .attr('x', '550')
+    .attr('y', '20')
+    .text('Hover over the circles')
 // footer
   svgHC.append("text") // source
   .attr('class', 'sources')

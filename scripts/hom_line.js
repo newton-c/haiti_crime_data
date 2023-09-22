@@ -1,6 +1,6 @@
 
       // set the dimensions and margins of the graph
-      const margin = {top: 30, right: 30, bottom: 60, left: 60},
+      const margin = {top: 60, right: 30, bottom: 60, left: 60},
           width = 640 - margin.left - margin.right,
           height = 450 - margin.top - margin.bottom;
       
@@ -55,9 +55,16 @@
               .x(d => x(d.date))
               .y(d => y(d.value))
               )
-              svg.append('text')
+            svg.append('text')
               .attr('class', 'plot-title')
+              .attr('y', '-30')
               .text('Homicides in Haiti')
+          
+            svg.append('text')
+              .attr('class', 'interactive-note')
+              .attr('x', '550')
+              .attr('y', '-30')
+              .text('Hover over the circles')
   
           svg.append('rect')
               .attr('x', '445')

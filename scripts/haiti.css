@@ -83,6 +83,12 @@ p {
     fill: #B3B3B3;
 }
 
+.interactive-note {
+    font-family: 'Roboto';
+    fill: #B3B3B3;
+    text-anchor: end;
+}
+
 .sources {
     font-family: 'Roboto';
     font-size: 15px;
