@@ -117,3 +117,19 @@ p {
 .node:hover {
     stroke-width: 5;
 }
+
+.myCircle {
+    r: 4;
+    stroke: #11269B;
+    stroke-width: 3;
+    fill: #FAFAFA;
+}
+
+.myCircle:hover {
+    r: 6;
+}
+
+.myPath {
+    stroke: #B31536;
+    stroke-width: 3;
+}

@@ -48,9 +48,8 @@
           // Add the line
           svgIL.append("path")
             .datum(data)
+            .attr('class', 'myPath')
             .attr("fill", "none")
-            .attr("stroke", "#3B3B3B")
-            .attr("stroke-width", 3)
             .attr("d", d3.line()
               .x(d => x(d.date))
               .y(d => y(d.value))
