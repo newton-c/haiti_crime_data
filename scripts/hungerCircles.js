@@ -147,12 +147,12 @@ svgHC.append('text')
   svgHC.append("text") // source
   .attr('class', 'sources')
   .attr("x", 0)
-  .attr("y", 530)
+  .attr("y", 590)
   .html("Source: <a href='https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156571/?iso3=HTI'>Integrated Food Security Phase Classification</a>")
 
 svgHC.append("text") // IC logo
   .attr('class', 'ic-logo')
   .attr("x", 550)
-  .attr("y", 530)
+  .attr("y", 590)
   .text('insightcrime.org')
     })
