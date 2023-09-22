@@ -29,12 +29,14 @@ hom_plot <- ggplot(hom_plot_data,
   hline
 hom_plot
 
-kidnap_plot <- ggplot(subset(crime, Measure == "Kidnappings"),
+kd_plot_data <- filter(crime, Measure == "Kidnappings")
+#write_csv(kd_plot_data, "data/kd_plot_data.csv")
+kidnap_plot <- ggplot(kd_plot_data,
                    aes(x = year, y = count)) +
-  geom_point(subset(crime, Measure == "Kidnappings" & year == 2022),
+  geom_point(subset(kd_plot_data, year == 2022),
                    mapping = aes(x = year, y = count)) +
   geom_line(linewidth = 1) +
-  geom_text(subset(crime, Measure == "Kidnappings" & year == 2022),
+  geom_text(subset(kd_plot_data, year == 2022),
                    mapping = aes(x = year - .2, y = count - 500),
             label = "1642% increase in\nkidnappings\n2019-2022",
             family = "Roboto Black") +
