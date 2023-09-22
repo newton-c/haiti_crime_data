@@ -46,12 +46,15 @@ kidnap_plot <- ggplot(kd_plot_data,
   hline
 kidnap_plot
 
-idps_ts_plot <- ggplot(subset(idps_la, name == "Haiti"& year != 2023),
+idp_data <- filter(idps_la, name == "Haiti" & year != 2023) %>%
+  select(year, conflict_internal_displacements)
+#write_csv(idp_data, "data/idp_data.csv")
+idps_ts_plot <- ggplot(idp_data,
                    aes(x = year, y = conflict_internal_displacements)) +
-  geom_point(subset(idps_la, name == "Haiti" & year == 2022),
+  geom_point(subset(idp_data, year == 2022),
                    mapping = aes(x = year, y = conflict_internal_displacements)) +
   geom_line(linewidth = 1) +
-  geom_text(subset(idps_la, name == "Haiti" & year == 2022),
+  geom_text(subset(idp_data, year == 2022),
                    mapping = aes(x = year - .5,
                                  y = conflict_internal_displacements - 10000),
             label = "430% increase in\nIPDs\n2019-2022",
