@@ -129,7 +129,7 @@
               Tooltip
                 .style("left", `${event.layerX+10}px`)
                 .style("top", `${event.layerY}px`)
-                .html("Displacements: " + d.value + "<br>" +
+                .html("Displacements: " + d3.format(',')(d.value) + "<br>" +
                       "Year: " + d.date)
             }
             const mouseleave = function(event,d) {
