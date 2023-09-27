@@ -37,8 +37,9 @@
       
           // Add Y axis
           const y = d3.scaleLinear()
-            .domain(d3.extent(data, d => d.value))
-            .range([ height, 0 ]);
+            .domain([ 2200, 1])
+            //.domain(d3.extent(data, d => d.value))
+            .range([ 0, height ]);
           svg.append("g")
             .attr("class", "y-axis")
             .call(d3.axisLeft(y)

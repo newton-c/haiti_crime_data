@@ -37,8 +37,9 @@
       
           // Add Y axis
           const y = d3.scaleLinear()
-            .domain(d3.extent(data, d => d.value))
-            .range([0, heightIL - 20]);
+            .domain([110000, 1])
+            //.domain(d3.extent(data, d => d.value))
+            .range([0, heightIL ]);
           svgIL.append("g")
             .attr("class", "y-axis")
             .call(d3.axisLeft(y)
@@ -57,11 +58,11 @@
               
             svgIL.append('text')
               .attr('class', 'plot-title')
-              .attr('y', '-30')
+              .attr('y', '-40')
               .text('Internally Displaced People (IDPs)')
             svgIL.append('text')
               .attr('class', 'plot-title')
-              .attr('y', '5')
+              .attr('y', '-10')
               .text('in Haiti')
   
           svgIL.append('rect')
@@ -92,7 +93,7 @@
         svgIL.append('text')
             .attr('class', 'interactive-note')
             .attr('x', '550')
-            .attr('y', '-30')
+            .attr('y', '-40')
             .text('Hover over the circles')
 
   // footer

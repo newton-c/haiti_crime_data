@@ -36,13 +36,14 @@
       
           // Add Y axis
           const y = d3.scaleLinear()
-            .domain(d3.extent(data, d => d.value))
-            .range([300, heightHL ]);
+            .domain([ 2000000, 1])
+            //.domain(d3.extent(data, d => d.value))
+            .range([0, heightHL ]);
           svgHL.append("g")
             .attr("class", "y-axis")
             .call(d3.axisLeft(y)
             .tickSizeInner(-widthHL)
-            .tickValues([750000, 1000000, 1250000, 1500000, 1750000])
+            .tickValues([250000, 500000, 750000, 1000000, 1250000, 1500000, 1750000])
             .tickSizeOuter(0));
       
           // Add the line
