@@ -58,6 +58,7 @@
               svgKL.append('text')
               .attr('class', 'plot-title')
               .attr('y', '-30')
+              .attr('x', '-40')
               .text('Kidnappings in Haiti')
   
           svgKL.append('rect')
@@ -96,7 +97,7 @@
       .attr('class', 'sources')
       .attr("x", -40)
       .attr("y", 380)
-      .html("Source: <a href='https://www.unodc.org/documents/data-and-analysis/toc/Haiti_assessment_UNODC.pdf' style='fill:#0000E9; text-decoration: underline'>UNODC</a>")
+      .html("Source: <a href='https://www.unodc.org/documents/data-and-analysis/toc/Haiti_assessment_UNODC.pdf' style='fill:#91273E; text-decoration: underline'>UNODC</a>")
   
   svgKL.append("text") // IC logo
       .attr('class', 'ic-logo')
@@ -120,6 +121,9 @@
             const mouseover = function(event,d) {
               Tooltip
                 .style("opacity", 1)
+                d3.select(this)
+                  .style("stroke-width", 4)
+                  .style("r", 6)
             }
             const mousemove = function(event,d) {
               Tooltip
@@ -131,6 +135,9 @@
             const mouseleave = function(event,d) {
               Tooltip
                 .style("opacity", 0)
+              d3.select(this)
+                .style("stroke-width", 3)
+                .style("r", 4)
             }
       
       

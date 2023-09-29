@@ -59,11 +59,13 @@
             svgHL.append('text')
               .attr('class', 'plot-title')
               .attr('y', '-30')
+              .attr('x', '-60')
               .text('Haitians Suffering from Emergency')
 
             svgHL.append('text')
               .attr('class', 'plot-title')
               .attr('y', '0')
+              .attr('x', '-60')
               .text('Food Insecurity')
   
           svgHL.append('rect')
@@ -115,7 +117,7 @@
     .attr('class', 'sources')
     .attr("x", -40)
     .attr("y", 580)
-    .html("Source: <a href='https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156571/?iso3=HTI' style='fill:#0000E9; text-decoration: underline'>Integrated Food Security Phase Classification</a>")
+    .html("Source: <a href='https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156571/?iso3=HTI' style='fill:#91273E; text-decoration: underline'>Integrated Food Security Phase Classification</a>")
 
   svgHL.append("text") // IC logo
       .attr('class', 'ic-logo')

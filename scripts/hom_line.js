@@ -58,6 +58,7 @@
             svg.append('text')
               .attr('class', 'plot-title')
               .attr('y', '-30')
+              .attr('x', '-40')
               .text('Homicides in Haiti')
           
             svg.append('text')
@@ -95,7 +96,7 @@
       .attr('class', 'sources')
       .attr("x", -40)
       .attr("y", 380)
-      .html("Source: <a href='https://www.unodc.org/documents/data-and-analysis/toc/Haiti_assessment_UNODC.pdf' style='fill:#0000E9; text-decoration: underline'>UNODC</a>")
+      .html("Source: <a href='https://www.unodc.org/documents/data-and-analysis/toc/Haiti_assessment_UNODC.pdf' style='fill:#91273E; text-decoration: underline'>UNODC</a>")
   
   svg.append("text") // IC logo
       .attr('class', 'ic-logo')

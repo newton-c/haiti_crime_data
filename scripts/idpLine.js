@@ -1,6 +1,6 @@
 
       // set the dimensions and margins of the graph
-      const marginIL = {top: 60, right: 30, bottom: 60, left: 60},
+      const marginIL = {top: 80, right: 30, bottom: 60, left: 60},
           widthIL = 640 - marginIL.left - marginIL.right,
           heightIL = 450 - marginIL.top - marginIL.bottom;
       
@@ -58,11 +58,13 @@
               
             svgIL.append('text')
               .attr('class', 'plot-title')
-              .attr('y', '-40')
+              .attr('y', '-60')
+              .attr('x', '-60')
               .text('Internally Displaced People (IDPs)')
             svgIL.append('text')
               .attr('class', 'plot-title')
-              .attr('y', '-10')
+              .attr('y', '-30')
+              .attr('x', '-60')
               .text('in Haiti')
   
           svgIL.append('rect')
@@ -100,13 +102,13 @@
   svgIL.append("text") // source
       .attr('class', 'sources')
       .attr("x", -40)
-      .attr("y", 380)
-      .html("Source: <a href='https://www.internal-displacement.org/database/displacement-data' style='fill:#0000E9; text-decoration: underline'>IDMC</a>")
+      .attr("y", 360)
+      .html("Source: <a href='https://www.internal-displacement.org/database/displacement-data' style='fill:#91273E; text-decoration: underline'>IDMC</a>")
   
   svgIL.append("text") // IC logo
       .attr('class', 'ic-logo')
       .attr("x", 550)
-      .attr("y", 380)
+      .attr("y", 360)
       .text('insightcrime.org')
       
           // create a tooltip

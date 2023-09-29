@@ -3,13 +3,13 @@ library(leaflet)
 library(htmltools)
 library(htmlwidgets)
 
-acled <- read_csv("data/acledHaiti.csv")
-
-vhg <- filter(acled, actor1 == "Vitelhomme Gang")
-g9 <- filter(acled, actor1 == "G-9 Gang")
+# ACLED Violence 
+acled <- read_csv("data/acledHaiti.csv") %>%
+  filter(grepl("Gang", actor1) == TRUE)
 
 m <- leaflet(data = acled) %>%
-  addProviderTiles(providers$CartoDB.Positron) %>%
+  addProviderTiles(providers$CartoDB.Positron,
+                   options = providerTileOptions(minZoom = 8)) %>%
   addCircleMarkers(lat = ~latitude, lng = ~longitude, radius = ~fatalities,
                    popup = paste0("Perpetrator: ", acled$actor1, "<br/>",
                                   "Fatalities: ",
@@ -22,41 +22,41 @@ m <- leaflet(data = acled) %>%
                    stroke = 0,
                    color = "#10259b",
                    opacity = .2,
-                   group = "All Groups") %>%
-#  addCircleMarkers(lat = ~latitude, lng = ~longitude, radius = ~fatalities,
-#                   popup = paste0("Perpetrator: ", vhg$actor1, "<br/>",
-#                                  "Fatalities: ",
-#                                  "<span style='color: #b31536'>",
-#                                  vhg$fatalities, 
-#                                  "</span><br/>",
-#                                  "Date: ", format(vhg$event_date,
-#                                                   format = "%y/%m/%d"),
-#                                  "<br/>", "Location: ", vhg$location),
-#                   stroke = 0,
-#                   color = "#10259b",
-#                   opacity = .2,
-#                   group = "Vitelhomme Gang",
-#                   data = vhg) %>%
-  addCircleMarkers(lat = ~latitude, lng = ~longitude, radius = ~fatalities,
-                   popup = paste0("Perpetrator: ",
-                                  "<a href='https://insightcrime.org/tag/g9/'>",
-                                  g9$actor1, "</a>", "<br/>",
-                                  "Fatalities: ",
-                                  "<span style='color: #b31536'>",
-                                  g9$fatalities, 
-                                  "</span><br/>",
-                                  "Date: ", format(g9$event_date,
-                                                   format = "%y/%m/%d"),
-                                  "<br/>", "Location: ", g9$location),
-                   stroke = 0,
-                   color = "#10259b",
-                   opacity = .2,
-                   group = "G-9 Gang",
-                   data = g9) %>%
-  addLayersControl(
-    baseGroups = c("All Groups", "G-9 Gang"),
-    options = layersControlOptions(collapsed = FALSE)
-  )
+                   group = "All Groups")
 m
 
 saveWidget(m, "figs/m.html")
+
+# Hunger choropleth
+
+haiti_geo <- geojsonio::geojson_read("data/Haiti-Acute Food Insecurity August 2023.json",
+                                     what = "sp")
+
+labels <- sprintf(
+  "<strong>%s</strong><br/>%g&#37; in Phase 3+",
+  haiti_geo$area, haiti_geo$p3_plus_C_population_percentage * 100
+) %>% lapply(htmltools::HTML)
+
+pal <- colorNumeric(c("#FAFAFA", "#CD771C", "#AB0002"),  domain = haiti_geo$p3_plus_C_population_percentage)
+#pal <- colorBin("YlOrRd", domain = haiti_geo$p3_plus_C_population_percentage)
+h <- leaflet(haiti_geo) %>%
+  addProviderTiles(providers$CartoDB.Positron,
+                   options = providerTileOptions(minZoom = 8)) %>%
+  addPolygons(
+    fillColor = ~pal(p3_plus_C_population_percentage),
+    weight = 2,
+    opacity = 1,
+    color = "#3B3B3B",
+    fillOpacity = 1,
+    highlightOptions = highlightOptions(
+      weight = 4,
+      bringToFront = TRUE),
+    label = labels,
+    labelOptions = labelOptions(
+      style = list("font-weight" = "normal", padding = "3px 8px"),
+      textsize = "15px",
+      direction = "auto"))
+h
+
+
+saveWidget(h, "figs/h.html")
