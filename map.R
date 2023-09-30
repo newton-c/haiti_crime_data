@@ -33,12 +33,12 @@ haiti_geo <- geojsonio::geojson_read("data/Haiti-Acute Food Insecurity August 20
                                      what = "sp")
 
 labels <- sprintf(
-  "<strong>%s</strong><br/>%g&#37; in Phase 3+",
+  "<strong>%s</strong><br/>%g&#37; facing a hunger crisis",
   haiti_geo$area, haiti_geo$p3_plus_C_population_percentage * 100
 ) %>% lapply(htmltools::HTML)
 
-pal <- colorNumeric(c("#FAFAFA", "#CD771C", "#AB0002"),  domain = haiti_geo$p3_plus_C_population_percentage)
-#pal <- colorBin("YlOrRd", domain = haiti_geo$p3_plus_C_population_percentage)
+pal <- colorNumeric(c("#FAFAFA", "#F5E63D", "#CD771C", "#AB0002"),
+                    domain = c(0, max(haiti_geo$p3_plus_C_population_percentage)))
 h <- leaflet(haiti_geo) %>%
   addProviderTiles(providers$CartoDB.Positron,
                    options = providerTileOptions(minZoom = 8)) %>%
@@ -47,7 +47,7 @@ h <- leaflet(haiti_geo) %>%
     weight = 2,
     opacity = 1,
     color = "#3B3B3B",
-    fillOpacity = 1,
+    fillOpacity = .7,
     highlightOptions = highlightOptions(
       weight = 4,
       bringToFront = TRUE),
