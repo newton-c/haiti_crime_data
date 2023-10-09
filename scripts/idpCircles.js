@@ -71,8 +71,8 @@
                 return "#11269B"
             }})
           .style("fill-opacity", 1)
-          .attr("stroke", "black")
-          .style("stroke-width2", 1)
+          .attr("stroke", "#3B3B3B")
+          .style("stroke-width2", .5)
           .on("mouseover", mouseover) // What to do when hovered
           .on("mousemove", mousemove)
           .on("mouseleave", mouseleave)
@@ -80,7 +80,8 @@
                .on("start", dragstarted)
                .on("drag", dragged)
                .on("end", dragended));
-    
+               
+               
       // Features of the forces applied to the nodes:
       const simulation = d3.forceSimulation()
           .force("center", d3.forceCenter()
@@ -123,13 +124,13 @@ svgHC.append('text')
     .attr('class', 'plot-title')
     .attr('x', 0)
     .attr('y', 20)
-    .text('Change in Internally Displaced')
+    .text('Change in Internally Displaced People in Latin')
 
 svgHC.append('text')
     .attr('class', 'plot-title')
     .attr('x', 0)
     .attr('y', 50)
-    .text('People in Latin America')
+    .text('America')
 
 svgHC.append('text')
     .attr('class', 'plot-subtitle')
@@ -140,7 +141,7 @@ svgHC.append('text')
   svgHC.append('text')
     .attr('class', 'interactive-note')
     .attr('x', '550')
-    .attr('y', '20')
+    .attr('y', '80')
     .text('Hover over the circles')
 // footer
   svgHC.append("text") // source
@@ -154,4 +155,12 @@ svgHC.append("text") // IC logo
   .attr("x", 550)
   .attr("y", 590)
   .text('insightcrime.org')
+
+svgHC.append('circle')
+  .attr('cx', '385')
+  .attr('cy', '75')
+  .attr('r', '4')
+  .attr("stroke", "#3B3B3B")
+  .attr("stroke-width", 1)
+  .attr("fill", "#B31536")  
     })

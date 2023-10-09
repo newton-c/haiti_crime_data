@@ -85,6 +85,8 @@ p {
 
 .interactive-note {
     font-family: 'Roboto';
+    font-style: italic;
+    font-size: 14px;
     fill: #B3B3B3;
     text-anchor: end;
 }
@@ -111,7 +113,7 @@ p {
 
 
 .node {
-    stroke-width: 2;
+    stroke-width: 1;
 }
 
 .node:hover {

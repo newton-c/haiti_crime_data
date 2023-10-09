@@ -60,19 +60,14 @@
               .attr('class', 'plot-title')
               .attr('y', '-60')
               .attr('x', '-60')
-              .text('Internally Displaced People (IDPs)')
-            svgIL.append('text')
-              .attr('class', 'plot-title')
-              .attr('y', '-30')
-              .attr('x', '-60')
-              .text('in Haiti')
+              .text('Internally Displaced People (IDPs) in Haiti')
   
           svgIL.append('rect')
               .attr('x', '395')
-              .attr('y', '30')
+              .attr('y', '25')
               .attr('height', '60')
               .attr('width', '90')
-              .attr('fill', 'white')
+              .attr('fill', '#C8D0DA')
   
           svgIL.append('text')
               .attr('class', 'annotations')
@@ -95,8 +90,17 @@
         svgIL.append('text')
             .attr('class', 'interactive-note')
             .attr('x', '550')
-            .attr('y', '-40')
+            .attr('y', '-20')
+            .attr('font-face', 'italic')
             .text('Hover over the circles')
+
+        svgIL.append('circle')
+          .attr('cx', '385')
+          .attr('cy', '-25')
+          .attr('r', '4')
+          .attr("stroke", "#11269B")
+          .attr("stroke-width", 3)
+          .attr("fill", "#FAFAFA")
 
   // footer
   svgIL.append("text") // source

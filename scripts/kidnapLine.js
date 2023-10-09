@@ -65,8 +65,8 @@
               .attr('x', '445')
               .attr('y', '115')
               .attr('height', '60')
-              .attr('width', '90')
-              .attr('fill', 'white')
+              .attr('width', '101')
+              .attr('fill', '#C8D0DA')
   
           svgKL.append('text')
               .attr('class', 'annotations')
@@ -91,6 +91,14 @@
             .attr('x', '550')
             .attr('y', '-30')
             .text('Hover over the circles')
+
+          svgKL.append('circle')
+            .attr('cx', '405')
+            .attr('cy', '-35')
+            .attr('r', '4')
+            .attr("stroke", "#11269B")
+            .attr("stroke-width", 3)
+            .attr("fill", "#FAFAFA")
 
   // footer
   svgKL.append("text") // source

@@ -66,13 +66,21 @@
               .attr('x', '550')
               .attr('y', '-30')
               .text('Hover over the circles')
+
+            svg.append('circle')
+              .attr('cx', '405')
+              .attr('cy', '-35')
+              .attr('r', '4')
+              .attr("stroke", "#11269B")
+              .attr("stroke-width", 3)
+              .attr("fill", "#FAFAFA")
   
           svg.append('rect')
               .attr('x', '445')
               .attr('y', '115')
               .attr('height', '60')
               .attr('width', '90')
-              .attr('fill', 'white')
+              .attr('fill', '#C8D0DA')
   
           svg.append('text')
               .attr('class', 'annotations')
@@ -91,6 +99,8 @@
               .attr('x', '450')
               .attr('y', '170')
               .text('2019-2022')
+              
+
   // footer
   svg.append("text") // source
       .attr('class', 'sources')
@@ -103,6 +113,7 @@
       .attr("x", 550)
       .attr("y", 380)
       .text('insightcrime.org')
+      
       
           // create a tooltip
           const Tooltip = d3.select("#hom_line")
