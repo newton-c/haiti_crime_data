@@ -67,6 +67,11 @@ idps_ts_plot
 
 # circle plot
 idps_la_22 <- filter(idps_la, year == 2022)
+idpJS <- filter(idps_la, year == 2022) %>%
+  rename(value = change_internal_dispalcements) %>%
+  filter(!is.na(value))
+#write_csv(idpJS, "data/idpJS.csv")
+
 packing <- circleProgressiveLayout(abs(idps_la_22$change_internal_dispalcements),
                                    sizetype = "area")
 

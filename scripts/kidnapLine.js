@@ -1,8 +1,8 @@
 
       // set the dimensions and margins of the graph
-      const marginKL = {top: 60, right: 30, bottom: 60, left: 60},
+      const marginKL = {top: 80, right: 30, bottom: 60, left: 60},
           widthKL = 640 - marginKL.left - marginKL.right,
-          heightKL = 450 - marginKL.top - marginKL.bottom;
+          heightKL = 470 - marginKL.top - marginKL.bottom;
       
       // append the svg object to the body of the page
       const svgKL = d3.select("#kidnapLine")
@@ -57,7 +57,7 @@
               )
               svgKL.append('text')
               .attr('class', 'plot-title')
-              .attr('y', '-30')
+              .attr('y', '-60')
               .attr('x', '-40')
               .text('Kidnappings in Haiti')
   
@@ -89,12 +89,12 @@
         svgKL.append('text')
             .attr('class', 'interactive-note')
             .attr('x', '550')
-            .attr('y', '-30')
+            .attr('y', '-20')
             .text('Hover over the circles')
 
           svgKL.append('circle')
             .attr('cx', '405')
-            .attr('cy', '-35')
+            .attr('cy', '-25')
             .attr('r', '4')
             .attr("stroke", "#11269B")
             .attr("stroke-width", 3)

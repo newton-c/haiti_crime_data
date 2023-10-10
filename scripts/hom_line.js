@@ -1,8 +1,8 @@
 
       // set the dimensions and margins of the graph
-      const margin = {top: 60, right: 30, bottom: 60, left: 60},
+      const margin = {top: 80, right: 30, bottom: 60, left: 60},
           width = 640 - margin.left - margin.right,
-          height = 450 - margin.top - margin.bottom;
+          height = 470 - margin.top - margin.bottom;
       
       // append the svg object to the body of the page
       const svg = d3.select("#hom_line")
@@ -57,19 +57,19 @@
               )
             svg.append('text')
               .attr('class', 'plot-title')
-              .attr('y', '-30')
+              .attr('y', '-60')
               .attr('x', '-40')
               .text('Homicides in Haiti')
           
             svg.append('text')
               .attr('class', 'interactive-note')
               .attr('x', '550')
-              .attr('y', '-30')
+              .attr('y', '-20')
               .text('Hover over the circles')
 
             svg.append('circle')
               .attr('cx', '405')
-              .attr('cy', '-35')
+              .attr('cy', '-25')
               .attr('r', '4')
               .attr("stroke", "#11269B")
               .attr("stroke-width", 3)

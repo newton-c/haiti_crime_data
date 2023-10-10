@@ -4,6 +4,7 @@ library(ICplots)
 library(jsonlite)
 
 theme_set(theme_ic())
+options(scipen=999)
 
 latam <- c("Peru", "Nicaragua", "Mexico", "Haiti", "Honduras", "Guatemala",
            "Ecuador", "El Salvador", "Colombia", "Brazil", "Bolivia")
@@ -36,10 +37,11 @@ rm(idps_lag)
 idps_la <- idps %>%
   filter(name %in% latam)
 
-ipds_la_year <- idps_la %>%
-  group_by(year) %>%
-  summarise(conflict_internal_displacements =
-              sum(conflict_internal_displacements,na.rm = TRUE))
+pop <- read_csv("data/WBpop22.csv") %>% rename(pop = YR2022)
+idps_la <- left_join(idps_la, pop, by = c('name' = 'CountryName')) 
+idps_la <- idps_la%>%
+  mutate(percent_idp = ifelse(is.na(idps_la$conflict_internal_displacements), NA,
+         (idps_la$conflict_internal_displacements / idps_la$pop * 100)))
 
 ggplot() +
   geom_line(subset(ipds_la_year, year != 2023),
@@ -79,3 +81,8 @@ crime <- read_csv("data/haiti_crime_stats.csv") %>%
 hunger <- read_csv("data/ipc_haiti - Count.csv")
 hungerJSON <- toJSON(hunger)
 hungerJSON
+
+
+# Sexual Violence
+acled_sc <- read_csv("data/acledHaiti-19_23.csv") %>%
+  filter(grepl("sexual violence", tags))
