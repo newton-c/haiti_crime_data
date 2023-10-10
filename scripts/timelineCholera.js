@@ -1,8 +1,8 @@
 
 // set the dimensions and margins of the graph
-const marginTLC = {top: 10, right: 30, bottom: 30, left: 60},
-    widthTLC = 460 - marginTLC.left - marginTLC.right,
-    heightTLC = 400 - marginTLC.top - marginTLC.bottom;
+const marginTLC = {top: 80, right: 30, bottom: 80, left: 60},
+    widthTLC = 640 - marginTLC.left - marginTLC.right,
+    heightTLC = 210 - marginTLC.top - marginTLC.bottom;
 
 // append the svg object to the body of the page
 const svgTLC = d3.select("#timelineCholera")
@@ -13,7 +13,7 @@ const svgTLC = d3.select("#timelineCholera")
     .attr("transform",`translate(${marginTLC.left},${marginTLC.top})`);
 
 //Read the data
-d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/connectedscatter.csv",
+d3.csv("https://raw.githubusercontent.com/newton-c/haiti_crime_data/main/data/choleraTimeline.csv",
 
   // When reading the csv, I must format variables:
   d => {
@@ -27,24 +27,26 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/co
       .domain(d3.extent(data, d => d.date))
       .range([ 0, widthTLC ]);
     svgTLC.append("g")
+        .attr('class', 'x-axis-timeline')
       .attr("transform", `translate(0, ${heightTLC})`)
       .call(d3.axisBottom(x));
 
     // Add Y axis
     const y = d3.scaleLinear()
-      .domain( [8000, 9200])
-      .range([ heightTLC, 0 ]);
+      .domain( [100, 100])
+      .range([ heightTLC, 30 ]);
     svgTLC.append("g")
-      .call(d3.axisLeft(y));
+        .attr('class', 'y-axis-timeline')
+      .call(d3.axisLeft(y)
+      .tickSizeOuter(0));
 
     // Add the line
     svgTLC.append("path")
       .datum(data)
       .attr("fill", "none")
-      .attr("stroke", "black")
+      .attr("stroke", "#3B3B3B")
       .attr("stroke-width", 1.5)
       .attr("d", d3.line()
-        .curve(d3.curveBasis) // Just add that to have a curve instead of segments
         .x(d => x(d.date))
         .y(d => y(d.value))
         )
@@ -53,12 +55,13 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/co
     const Tooltip = d3.select("#timelineCholera")
       .append("div")
       .style("opacity", 0)
-      .attr("class", "tooltipTLC")
+      .attr("class", "tooltip")
       .style("background-color", "white")
       .style("border", "solid")
       .style("border-width", "2px")
       .style("border-radius", "5px")
       .style("padding", "5px")
+      
 
       // Three function that change the tooltip when user hover / move / leave a cell
       const mouseover = function(event,d) {
@@ -67,9 +70,10 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/co
       }
       const mousemove = function(event,d) {
         Tooltip
-          .html("Exact value: " + d.value)
+          .html(d.dateText + '<br>' + d.description)
           .style("left", `${event.layerX+10}px`)
           .style("top", `${event.layerY}px`)
+          .attr('position', 'absolute')
       }
       const mouseleave = function(event,d) {
         Tooltip
@@ -84,13 +88,13 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/co
       .selectAll("dot")
       .data(data)
       .join("circle")
-        .attr("class", "myCircleTLC")
+        .attr("class", "myCircleCTL")
         .attr("cx", d => x(d.date))
         .attr("cy", d => y(d.value))
         .attr("r", 8)
-        .attr("stroke", "#69b3a2")
+        .attr("stroke", "#B31536")
         .attr("stroke-width", 3)
-        .attr("fill", "white")
+        .attr("fill", "#11269B")
         .on("mouseover", mouseover)
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)

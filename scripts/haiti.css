@@ -44,6 +44,23 @@ p {
     stroke: none;
 }
 
+.x-axis-timeline path {
+    stroke: none;
+}
+
+.x-axis-timeline text {
+    font-family: 'Roboto';
+    font-size: 13px;
+}
+
+.y-axis-timeline path {
+    stroke: none;
+}
+
+.y-axis-timeline text {
+    font-size: 0px;
+}
+
 .plot-title {
     font-size: 24px;
     font-family: 'Roboto';

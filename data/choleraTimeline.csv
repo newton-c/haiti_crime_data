@@ -1,11 +1,10 @@
-date,value,dateText,description,source,notes
-2010-10-01,100,October 2010,First case of cholera is reported,,precise date not found
-2018-04-15,100,,,,
-2018-04-16,100,,,,
-2018-04-17,100,,,,
-2018-04-18,100,,,,
-2018-04-19,100,,,,
-2018-04-20,100,,,,
-2018-04-21,100,,,,
-2018-04-22,100,,,,
-2018-04-23,100,,,,
+date,value,dateText,description,notes,source1,source2,source3
+2010-10-20,100,October 20 2010,First case of cholera is reported,,https://www.who.int/emergencies/disease-outbreak-news/item/2022-DON427,https://www.cdc.gov/cholera/haiti/index.html,
+2011-06-15,100,2011,"Outbreak peaks at 352,000 suspected cases",,https://www.cdc.gov/cholera/haiti/index.html,,
+2019-12-31,100,2019,Suspected cholera cases decline to 720 and 3 deaths over the year,,https://www.cdc.gov/cholera/haiti/index.html,,
+2022-10-20,100,October 2022,"After 3 years of no cases, another outbreak begins",,https://www.cdc.gov/cholera/haiti/index.html,,
+2022-11-05,100,November 5 2022,Haiti has a peak of 474 suspected cases in one day,,https://shiny.pahobra.org/cholera/,,
+2022-11-07,100,November 7 2022,"Haitian government reportes over 6,500 suspected cases in greater Port-au-Prince",,https://www.cdc.gov/cholera/haiti/index.html,,
+2023-04-15,100,April 2023,"Suspected cases wane, averaging less than 100 per day",,https://shiny.pahobra.org/cholera/,,
+2023-06-13,100,June 13 2023,"A second wave hits, peaking with 360 cases in a single day",,https://shiny.pahobra.org/cholera/,,
+2023-09-30,100,September 30 2023,"A total of 63,603 suspected cases had afflicted Haiti",,https://shiny.pahobra.org/cholera/,,
