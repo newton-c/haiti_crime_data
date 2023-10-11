@@ -74,7 +74,7 @@ d3.csv("https://raw.githubusercontent.com/newton-c/haiti_crime_data/main/data/ch
       }
       const mousemove = function(event,d) {
         Tooltip
-          .html(d.dateText + '<br>' + d.description)
+          .html(d.dateText + ': ' + d.description)
           .style("left", `${event.layerX+10}px`)
           .style("top", `${event.layerY}px`)
           .attr('position', 'absolute')
@@ -209,7 +209,7 @@ svgTLC.append('path')
   svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '125')
-      .attr('y', '70')
+      .attr('y', '65')
       .style('fill', '#B31536')
       .text("Haiti's first cholera outbreak")
      
@@ -223,7 +223,7 @@ svgTLC.append('path')
    svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '400')
-      .attr('y', '70')
+      .attr('y', '65')
       .style('fill', '#11269B')
       .text("three years")
 

@@ -86,3 +86,12 @@ hungerJSON
 # Sexual Violence
 acled_sc <- read_csv("data/acledHaiti-19_23.csv") %>%
   filter(grepl("sexual violence", tags))
+
+# Cholera
+chol_con <- read_xlsx("data/Haiti_cholera.xlsx", sheet = 1) %>%
+  mutate(Age = sub("--", "-", Age))
+#write_csv(chol_con, "data/cholera_confirmed.csv")
+
+chol_sus <- read_xlsx("data/Haiti_cholera.xlsx", sheet = 2) %>%
+  mutate(Age = sub("--", "-", Age)) 
+#write_csv(chol_sus, "data/cholera_suspected.csv")
