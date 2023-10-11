@@ -8,7 +8,7 @@ date,value,dateText,description,notes,source1,source2,source3
 2016-01-01,100,2016,Cases begin to steadily decline,,https://www.cdc.gov/cholera/haiti/index.html,,
 2017-01-01,100,2017,"13,681 total suspected cases",,https://mspp.gouv.ht/site/downloads/Profil%20statistique%20Cholera%203eme%20SE%202020.pdf,,
 2018-01-01,100,2018,"3,777 total suspected cases",,https://mspp.gouv.ht/site/downloads/Profil%20statistique%20Cholera%203eme%20SE%202020.pdf,,
-2019-12-31,100,2019,Suspected cholera cases decline to 720 and 3 deaths over the year,,https://mspp.gouv.ht/site/downloads/Profil%20statistique%20Cholera%203eme%20SE%202020.pdf,https://www.cdc.gov/cholera/haiti/index.html,
+2019-01-01,100,2019,Suspected cholera cases decline to 720 and 3 deaths over the year,,https://mspp.gouv.ht/site/downloads/Profil%20statistique%20Cholera%203eme%20SE%202020.pdf,https://www.cdc.gov/cholera/haiti/index.html,
 2022-10-01,100,October 2022,"After 3 years of no cases, another outbreak begins",,https://www.cdc.gov/cholera/haiti/index.html,,
 2022-11-05,100,"November 5, 2022",Haiti has a peak of 474 suspected cases in one day,,https://shiny.pahobra.org/cholera/,,
 2023-04-15,100,April 2023,"Suspected cases wane, averaging less than 100 per day",,https://shiny.pahobra.org/cholera/,,

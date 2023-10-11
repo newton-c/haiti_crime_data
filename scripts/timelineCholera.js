@@ -1,8 +1,8 @@
 
 // set the dimensions and margins of the graph
-const marginTLC = {top: 80, right: 30, bottom: 40, left: 60},
+const marginTLC = {top: 100, right: 30, bottom: 40, left: 60},
     widthTLC = 640 - marginTLC.left - marginTLC.right,
-    heightTLC = 210 - marginTLC.top - marginTLC.bottom;
+    heightTLC = 280 - marginTLC.top - marginTLC.bottom;
 
 // append the svg object to the body of the page
 const svgTLC = d3.select("#timelineCholera")
@@ -31,7 +31,7 @@ d3.csv("https://raw.githubusercontent.com/newton-c/haiti_crime_data/main/data/ch
       .range([ 0, widthTLC ]);
     svgTLC.append("g")
         .attr('class', 'x-axis-timeline')
-      .attr("transform", `translate(0, ${heightTLC})`)
+      .attr("transform", `translate(0, ${heightTLC - 25})`)
       .call(d3.axisBottom(x)
       .tickSizeInner(0));
 
@@ -87,7 +87,7 @@ d3.csv("https://raw.githubusercontent.com/newton-c/haiti_crime_data/main/data/ch
 //add the highlights
 svgTLC.append('rect')
     .attr('x', '0')
-    .attr('y', '75')
+    .attr('y', '100')
     .attr('height', '10')
     .attr('width', '390')
     .attr('fill', '#B31536')
@@ -95,7 +95,7 @@ svgTLC.append('rect')
 
 svgTLC.append('rect')
     .attr('x', '390')
-    .attr('y', '75')
+    .attr('y', '100')
     .attr('height', '10')
     .attr('width', '130')
     .attr('fill', '#11269B')
@@ -103,12 +103,12 @@ svgTLC.append('rect')
 
 // annotation lines
 svgTLC.append('path')
-    .attr("d", "M0,0L0,80")
+    .attr("d", "M0,20L0,100")
     .attr('stroke', '#3B3B3B')
     .attr('stroke-width', '2.5')
 
 svgTLC.append('path')
-    .attr("d", "M510,0L510,80")
+    .attr("d", "M510,20L510,100")
     .attr('stroke', '#3B3B3B')
     .attr('stroke-width', '2.5')
 
@@ -129,18 +129,22 @@ svgTLC.append('path')
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)
 
- 
+  svgTLC.append('text')
+      .attr('class', 'plot-title')
+      .attr('x', '-40')
+      .attr('y', '-80')
+      .text('The History of Cholera in Haiti')
 
   svgTLC.append('text')
       .attr('class', 'interactive-note')
       .attr('x', '550')
-      .attr('y', '-65')
+      .attr('y', '-45')
       .attr('font-face', 'italic')
       .text('Hover over the circles')
 
   svgTLC.append('circle')
       .attr('cx', '395')
-      .attr('cy', '-70')
+      .attr('cy', '-50')
       .attr('r', '8')
       .attr("stroke", "#B31536")
       .attr("stroke-width", 3)
@@ -151,7 +155,7 @@ svgTLC.append('path')
 
   svgTLC.append('rect')
       .attr('x', '-20')
-      .attr('y', '-60')
+      .attr('y', '-30')
       .attr('height', '60')
       .attr('width', '110')
       .attr('fill', '#C8D0DA')
@@ -159,83 +163,77 @@ svgTLC.append('path')
   svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '-15')
-      .attr('y', '-40')
+      .attr('y', '-10')
       .text('Oct 20 2010:')
 
   svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '-15')
-      .attr('y', '-25')
+      .attr('y', '5')
       .text('Cholera outbreak')
 
   svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '-15')
-      .attr('y', '-10')
+      .attr('y', '20')
       .text('begins')
 
 
   svgTLC.append('rect')
-      .attr('x', '470')
-      .attr('y', '-60')
-      .attr('height', '75')
-      .attr('width', '110')
+      .attr('x', '440')
+      .attr('y', '-30')
+      .attr('height', '60')
+      .attr('width', '135')
       .attr('fill', '#C8D0DA')
 
   svgTLC.append('text')
       .attr('class', 'annotations')
-      .attr('x', '475')
-      .attr('y', '-40')
+      .attr('x', '445')
+      .attr('y', '-10')
       .text('Oct 2022:')
 
   svgTLC.append('text')
       .attr('class', 'annotations')
-      .attr('x', '475')
-      .attr('y', '-25')
-      .text('After 3 years')
-
-  svgTLC.append('text')
-      .attr('class', 'annotations')
-      .attr('x', '475')
-      .attr('y', '-10')
-      .text('another outbreak')
-
-  svgTLC.append('text')
-      .attr('class', 'annotations')
-      .attr('x', '475')
+      .attr('x', '445')
       .attr('y', '5')
-      .text('begins')
+      .text('After 3 years another')
+
+  svgTLC.append('text')
+      .attr('class', 'annotations')
+      .attr('x', '445')
+      .attr('y', '20')
+      .text('outbreak begins')
       
   svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '125')
-      .attr('y', '65')
+      .attr('y', '90')
       .style('fill', '#B31536')
       .text("Haiti's first cholera outbreak")
      
    svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '400')
-      .attr('y', '50')
+      .attr('y', '75')
       .style('fill', '#11269B')
       .text("No cases for")
 
    svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '400')
-      .attr('y', '65')
+      .attr('y', '90')
       .style('fill', '#11269B')
       .text("three years")
 
     svgTLC.append("text") // source
       .attr('class', 'sources')
       .attr("x", -40)
-      .attr("y", 125)
+      .attr("y", 155)
       .html("Source: Various Open Sources")
   
     svgTLC.append("text") // IC logo
         .attr('class', 'ic-logo')
         .attr("x", 540)
-        .attr("y", 125)
+        .attr("y", 155)
         .text('insightcrime.org')
 })

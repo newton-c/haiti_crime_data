@@ -20,6 +20,13 @@ p {
     font-size: 13px;
 }
 
+.x-axis-title {
+    text-anchor: middle;
+    font-family: 'Roboto';
+    font-size: 15px;
+    font-style: italic;
+    fill: #B3B3B3;
+}
 .y-axis text {
     font-family: 'Roboto';
     font-size: 15px;

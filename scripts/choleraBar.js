@@ -69,17 +69,22 @@ function update(selectedVar) {
         .attr("height", d => heightCB - y(d[selectedVar]))
         .attr("fill", "#B31536")
 
+    svgCB.append('text')
+        .attr('class', 'x-axis-title')
+        .attr('x', widthCB / 2)
+        .attr('y', heightCB + 40)
+        .text('Age Group')
 
     svgCB.append("text") // source
         .attr('class', 'sources')
         .attr("x", -40)
-        .attr("y", 400)
+        .attr("y", heightCB + 60)
         .html("Sources: <a href='https://shiny.pahobra.org/cholera/' style='fill: #90273E; text-decoration: underline;'>PAHO/WHO</a>")
     
     svgCB.append("text") // IC logo
         .attr('class', 'ic-logo')
         .attr("x", 550)
-        .attr("y", 400)
+        .attr("y", heightCB + 60)
         .text('insightcrime.org')
   })
 
