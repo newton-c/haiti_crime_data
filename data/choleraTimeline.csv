@@ -15,4 +15,4 @@ date,value,yearlyCases,dateText,description,notes,source1,source2,source3
 2022-11-05,0,,"November 5, 2022",Haiti has a peak of 474 suspected cases in one day,,https://shiny.pahobra.org/cholera/,,
 2023-04-15,0,,April 2023,"Suspected cases wane, averaging less than 100 per day",,https://shiny.pahobra.org/cholera/,,
 2023-06-13,0,,"June 13, 2023","A second wave hits, peaking with 360 cases in a single day",,https://shiny.pahobra.org/cholera/,,
-2023-09-30,0,#REF!,"September 30, 2023","A total of 63,603 suspected cases had afflicted Haiti",,https://shiny.pahobra.org/cholera/,,
+2023-09-30,0,38988,"September 30, 2023","A total of 63,603 suspected cases had afflicted Haiti",,https://shiny.pahobra.org/cholera/,,
