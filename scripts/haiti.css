@@ -44,7 +44,8 @@ p {
 .y-axis line {
     stroke-dasharray: 7 7;
     stroke: #B3B3B3;
-    stroke-width: 2;
+    stroke-width: 1;
+    opacity: .5;
 }
 
 .y-axis path {
@@ -138,7 +139,7 @@ p {
     font-family: 'Roboto';
     text-align: left;
     position: absolute;
-    width: 150px;
+    border-radius: 0px;
 }
 
 
@@ -179,3 +180,15 @@ button {
 button:focus {
     background-color: #B31536; 
 }
+
+.annotation-rect {
+    fill: #C8D0DA
+}
+
+rect.positive {
+    fill: #B31536;
+  }
+  
+rect.negative {
+    fill: #11269B;
+  }

@@ -60,32 +60,29 @@
               .attr('class', 'plot-title')
               .attr('y', '-60')
               .attr('x', '-60')
-              .text('Internally Displaced People (IDPs) in Haiti')
+              .text('Internally Displaced People in Haiti')
   
           svgIL.append('rect')
-              .attr('x', '395')
-              .attr('y', '25')
-              .attr('height', '60')
-              .attr('width', '90')
-              .attr('fill', '#C8D0DA')
+              .attr('class', 'annotation-rect')
+              .attr('x', '360')
+              .attr('y', '-5')
+              .attr('height', '40')
+              .attr('width', '140')
   
           svgIL.append('text')
               .attr('class', 'annotations')
-              .attr('x', '400')
-              .attr('y', '40')
-              .text('430% increase')
+              .attr('x', '493')
+              .attr('y', '10')
+              .attr('text-anchor', 'end')
+              .text('430% increase in IDPs')
   
           svgIL.append('text')
               .attr('class', 'annotations')
-              .attr('x', '400')
-              .attr('y', '60')
-              .text('in IDPs')
+              .attr('x', '493')
+              .attr('y', '30')
+              .attr('text-anchor', 'end')
+              .text('from 2019 to 2022')
   
-          svgIL.append('text')
-              .attr('class', 'annotations')
-              .attr('x', '400')
-              .attr('y', '80')
-              .text('2019-2022')
 
         svgIL.append('text')
             .attr('class', 'interactive-note')
@@ -123,9 +120,8 @@
             .style("background-color", "white")
             .style("border", "solid")
             .style("border-width", "2px")
-            .style("border-radius", "5px")
-            .style("padding", "5px")
-            .style("width", "200px")
+            .style("border-radius", "0px")
+            .style("padding", "5px");
       
             // Three function that change the tooltip when user hover / move / leave a cell
             const mouseover = function(event,d) {
@@ -136,7 +132,7 @@
               Tooltip
                 .style("left", `${event.layerX+10}px`)
                 .style("top", `${event.layerY}px`)
-                .html("Displacements: " + d3.format(',')(d.value) + "<br>" +
+                .html("IDPs: " + d3.format(',')(d.value) + "<br>" +
                       "Year: " + d.date)
             }
             const mouseleave = function(event,d) {
@@ -162,7 +158,4 @@
               .on("mouseover", mouseover)
               .on("mousemove", mousemove)
               .on("mouseleave", mouseleave)
-
-        
       })
-

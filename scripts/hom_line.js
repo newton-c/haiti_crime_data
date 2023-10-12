@@ -37,7 +37,7 @@
       
           // Add Y axis
           const y = d3.scaleLinear()
-            .domain([ 2200, 1])
+            .domain([ 2400, 1])
             //.domain(d3.extent(data, d => d.value))
             .range([ 0, height ]);
           svg.append("g")
@@ -76,29 +76,25 @@
               .attr("fill", "#FAFAFA")
   
           svg.append('rect')
-              .attr('x', '445')
-              .attr('y', '115')
-              .attr('height', '60')
-              .attr('width', '90')
-              .attr('fill', '#C8D0DA')
+              .attr('class', 'annotation-rect')
+              .attr('x', '290')
+              .attr('y', '-5')
+              .attr('height', '40')
+              .attr('width', '170')
   
           svg.append('text')
               .attr('class', 'annotations')
               .attr('x', '450')
-              .attr('y', '130')
-              .text('91% increase')
+              .attr('y', '10')
+              .style('text-anchor', 'end')
+              .text('91% increase in homicides')
   
           svg.append('text')
               .attr('class', 'annotations')
               .attr('x', '450')
-              .attr('y', '150')
-              .text('in homicides')
-  
-          svg.append('text')
-              .attr('class', 'annotations')
-              .attr('x', '450')
-              .attr('y', '170')
-              .text('2019-2022')
+              .attr('y', '30')
+              .style('text-anchor', 'end')
+              .text('from 2019 to 2022')
               
 
   // footer
@@ -123,9 +119,7 @@
             .style("background-color", "white")
             .style("border", "solid")
             .style("border-width", "2px")
-            .style("border-radius", "5px")
             .style("padding", "5px")
-            .style("width", "200px")
       
             // Three function that change the tooltip when user hover / move / leave a cell
             const mouseover = function(event,d) {

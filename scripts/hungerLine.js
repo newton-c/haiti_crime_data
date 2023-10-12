@@ -63,41 +63,32 @@
               .text('Haitians Suffering from Emergency Food Insecurity')
   
           svgHL.append('rect')
-              .attr('x', '220')
-              .attr('y', '25')
-              .attr('height', '100')
-              .attr('width', '150')
-              .attr('fill', '#C8D0DA')
+              .attr('class', 'annotation-rect')
+              .attr('x', '185')
+              .attr('y', '20')
+              .attr('height', '70')
+              .attr('width', '255')
   
           svgHL.append('text')
               .attr('class', 'annotations')
-              .attr('x', '230')
+              .attr('x', '430')
               .attr('y', '40')
-              .text('Haitians suffering')
+              .attr('text-anchor', 'end')
+              .text('Haitians suffering from emergency levels')
   
           svgHL.append('text')
               .attr('class', 'annotations')
-              .attr('x', '230')
+              .attr('x', '430')
               .attr('y', '60')
-              .text('from emergency levels')
-  
-          svgHL.append('text')
-              .attr('class', 'annotations')
-              .attr('x', '230')
-              .attr('y', '80')
-              .text('of food insecurity has')
+              .attr('text-anchor', 'end')
+              .text('of food insecurity has increased 250%')
 
             svgHL.append('text')
                 .attr('class', 'annotations')
-                .attr('x', '230')
-                .attr('y', '100')
-                .text('increased 250% from')
-
-            svgHL.append('text')
-                .attr('class', 'annotations')
-                .attr('x', '230')
-                .attr('y', '120')
-                .text('2019 - 2023')
+                .attr('x', '430')
+                .attr('y', '80')
+                .attr('text-anchor', 'end')
+                .text('from 2019 to 2023')
 
 
         svgHL.append('text')
@@ -135,9 +126,7 @@
             .style("background-color", "white")
             .style("border", "solid")
             .style("border-width", "2px")
-            .style("border-radius", "5px")
             .style("padding", "5px")
-            .style("width", "200px")
       
             // Three function that change the tooltip when user hover / move / leave a cell
             const mouseover = function(event,d) {

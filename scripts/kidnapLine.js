@@ -62,29 +62,25 @@
               .text('Kidnappings in Haiti')
   
           svgKL.append('rect')
-              .attr('x', '445')
-              .attr('y', '115')
-              .attr('height', '60')
-              .attr('width', '101')
-              .attr('fill', '#C8D0DA')
+              .attr('class', 'annotation-rect')
+              .attr('x', '291')
+              .attr('y', '0')
+              .attr('height', '40')
+              .attr('width', '191')
   
           svgKL.append('text')
               .attr('class', 'annotations')
-              .attr('x', '450')
-              .attr('y', '130')
-              .text('1642% increase')
+              .attr('x', '475')
+              .attr('y', '15')
+              .attr('text-anchor', 'end')
+              .text('1642% increase in kidnappings')
   
           svgKL.append('text')
               .attr('class', 'annotations')
-              .attr('x', '450')
-              .attr('y', '150')
-              .text('in kidnappings')
-  
-          svgKL.append('text')
-              .attr('class', 'annotations')
-              .attr('x', '450')
-              .attr('y', '170')
-              .text('2019-2022')
+              .attr('x', '475')
+              .attr('y', '35')
+              .attr('text-anchor', 'end')
+              .text('from 2019 to 2022')
 
         svgKL.append('text')
             .attr('class', 'interactive-note')
@@ -121,10 +117,8 @@
             .style("background-color", "white")
             .style("border", "solid")
             .style("border-width", "2px")
-            .style("border-radius", "5px")
             .style("padding", "5px")
-            .style("width", "200px")
-      
+           
             // Three function that change the tooltip when user hover / move / leave a cell
             const mouseover = function(event,d) {
               Tooltip

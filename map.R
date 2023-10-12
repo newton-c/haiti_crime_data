@@ -6,12 +6,14 @@ library(htmlwidgets)
 # ACLED Violence 
 acled <- read_csv("data/acledHaiti.csv") %>%
   filter(grepl("Gang", actor1) == TRUE) %>%
-  mutate(events = fatalities + 5)
+  mutate(events = fatalities + 1) %>%
+  arrange(desc(fatalities))
 
 m <- leaflet(data = acled) %>%
   addProviderTiles(providers$CartoDB.Positron,
                    options = providerTileOptions(minZoom = 8)) %>%
-  addCircleMarkers(lat = ~latitude, lng = ~longitude, radius = ~fatalities,
+  addCircles(lat = ~latitude, lng = ~longitude, radius = ~fatalities * 1000,
+  #addCircleMarkers(lat = ~latitude, lng = ~longitude, radius = ~fatalities,
                    popup = paste0("Perpetrator: ", acled$actor1, "<br/>",
                                   "Fatalities: ",
                                   "<span style='color: #b31536'>",
@@ -24,6 +26,7 @@ m <- leaflet(data = acled) %>%
                    color = "#B31536",
                    opacity = .2,
                    group = "All Groups")
+
 m
 
 saveWidget(m, "figs/m.html")
@@ -31,7 +34,7 @@ saveWidget(m, "figs/m.html")
 e <- leaflet(data = acled) %>%
   addProviderTiles(providers$CartoDB.Positron,
                    options = providerTileOptions(minZoom = 8)) %>%
-  addCircleMarkers(lat = ~latitude, lng = ~longitude, radius = ~events,
+  addCircles(lat = ~latitude, lng = ~longitude, radius = ~events * 1000,
                    popup = paste0("Perpetrator: ", acled$actor1, "<br/>",
                                   "Event Type: ", acled$sub_event_type, "<br/>",
                                   "Fatalities: ",
