@@ -27,6 +27,37 @@ p {
     font-style: italic;
     fill: #B3B3B3;
 }
+
+.x-axis-horizontal path {
+    stroke: #3B3B3B;
+    stroke-width: 2;
+}
+
+.x-axis-horizontal text {
+    font-family: 'Roboto';
+    font-size: 13px;
+}
+
+.x-axis-horizontal line {
+    stroke-dasharray: 7 7;
+    stroke: #B3B3B3;
+    stroke-width: 1;
+    opacity: .5;
+}
+
+.x-axis-special text {
+    font-size: 0;
+}
+
+.x-axis-special path {
+    stroke: none;
+}
+.x-axis-special line {
+    stroke: #3B3B3B;
+    stroke-width: 2;
+    opacity: 1;
+}
+
 .y-axis text {
     font-family: 'Roboto';
     font-size: 15px;

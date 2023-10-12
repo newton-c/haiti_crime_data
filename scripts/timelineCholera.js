@@ -74,6 +74,7 @@ d3.csv("https://raw.githubusercontent.com/newton-c/haiti_crime_data/main/data/ch
       .style("border", "solid")
       .style("border-width", "2px")
       .style("padding", "5px")
+      .style('width', '200px')
       
 
       // Three function that change the tooltip when user hover / move / leave a cell
