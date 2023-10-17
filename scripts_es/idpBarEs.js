@@ -12,7 +12,7 @@ const svgIDPB = d3.select("#idpBar")
     .attr("transform", `translate(${marginIDPB.left}, ${marginIDPB.top})`);
 
 // Parse the Data
-d3.csv("https://raw.githubusercontent.com/Insight-Crime/ic_datos/main/violencias_haiti/idpJS.csv").then( function(data) {
+d3.csv("https://raw.githubusercontent.com/Insight-Crime/ic_datos/main/violencias_haiti/idpJSEs.csv").then( function(data) {
 
   // Add X axis
   const x = d3.scaleLinear()
@@ -49,7 +49,7 @@ d3.csv("https://raw.githubusercontent.com/Insight-Crime/ic_datos/main/violencias
     .selectAll('text')
     .data(data)
     //.enter()
-    .style('fill', d => `${d.name == 'Haiti' ? '#B31536' : '#B3B3B3'}`)
+    .style('fill', d => `${d.name == 'Haití' ? '#B31536' : '#B3B3B3'}`)
     
 
   //Bars
@@ -62,33 +62,25 @@ d3.csv("https://raw.githubusercontent.com/Insight-Crime/ic_datos/main/violencias
     .attr("width", d => Math.abs(x(d.value) - x(0)))
     .attr("height", y.bandwidth())
     .attr("fill", "#69b3a2")
-  
-//svgIDPB.append('line')
-//    .attr('x1', d => x(0))
-//    .attr('y1', '0')
-//    .attr('x2', d => x(0))
-//    .attr('y2', 325)
-//    .attr("stroke", '#3b3b3b')
-//    .attr('stroke-width', 2)
 
 svgIDPB.append('text')
     .attr('class', 'plot-title')
     .attr('x', -80)
     .attr('y', -60)
-    .text('Internally Displaced People in Latin America')
+    .text('Desplazados internos en América Latina')
 
 svgIDPB.append('text')
     .attr('class', 'plot-subtitle')
     .attr('x', -80)
     .attr('y', -30)
-    .text('Percent change from 2021 to 2022')
+    .text('Cambio porcentual entre 2021 y 2022')
 
 // footer
 svgIDPB.append("text") // source
 .attr('class', 'sources')
 .attr("x", -80)
 .attr("y", 365)
-.html("Source: <a href='https://www.internal-displacement.org/database/displacement-data' style='fill:#91273E; text-decoration: underline'>IDMC</a>")
+.html("Fuente: <a href='https://www.internal-displacement.org/database/displacement-data' style='fill:#91273E; text-decoration: underline'>IDMC</a>")
 
 svgIDPB.append("text") // IC logo
 .attr('class', 'ic-logo')

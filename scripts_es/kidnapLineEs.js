@@ -59,37 +59,37 @@
               .attr('class', 'plot-title')
               .attr('y', '-60')
               .attr('x', '-40')
-              .text('Kidnappings in Haiti')
+              .text('Secuestros en Haití')
   
           svgKL.append('rect')
               .attr('class', 'annotation-rect')
-              .attr('x', '291')
+              .attr('x', '251')
               .attr('y', '0')
               .attr('height', '40')
-              .attr('width', '191')
+              .attr('width', '231')
   
           svgKL.append('text')
               .attr('class', 'annotations')
               .attr('x', '475')
               .attr('y', '15')
               .attr('text-anchor', 'end')
-              .text('1642% increase in kidnappings')
+              .text('Aumento del 1642% en los secuestros')
   
           svgKL.append('text')
               .attr('class', 'annotations')
               .attr('x', '475')
               .attr('y', '35')
               .attr('text-anchor', 'end')
-              .text('from 2019 to 2022')
+              .text('entre 2019 y 2022')
 
         svgKL.append('text')
             .attr('class', 'interactive-note')
             .attr('x', '550')
             .attr('y', '-20')
-            .text('Hover over the circles')
+            .text('Pase el cursor sobre los círculos')
 
           svgKL.append('circle')
-            .attr('cx', '405')
+            .attr('cx', '335')
             .attr('cy', '-25')
             .attr('r', '4')
             .attr("stroke", "#11269B")
@@ -101,7 +101,7 @@
       .attr('class', 'sources')
       .attr("x", -40)
       .attr("y", 380)
-      .html("Source: <a href='https://www.unodc.org/documents/data-and-analysis/toc/Haiti_assessment_UNODC.pdf' style='fill:#91273E; text-decoration: underline'>UNODC</a>")
+      .html("Fuente: <a href='https://www.unodc.org/documents/data-and-analysis/toc/Haiti_assessment_UNODC.pdf' style='fill:#91273E; text-decoration: underline'>ONUDD</a>")
   
   svgKL.append("text") // IC logo
       .attr('class', 'ic-logo')
@@ -131,8 +131,8 @@
               Tooltip
                 .style("left", `${event.layerX+10}px`)
                 .style("top", `${event.layerY}px`)
-                .html("Kidnappings: " + d3.format(',')(d.value) + "<br>" +
-                      "Year: " + d.date)
+                .html("Secuestros: " + d3.format(',')(d.value) + "<br>" +
+                      "Año: " + d.date)
             }
             const mouseleave = function(event,d) {
               Tooltip

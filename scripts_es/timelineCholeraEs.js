@@ -18,7 +18,7 @@ const filterValues = ["October 20, 2010", "2011", "2012",
   "June 13, 2023", "September 30, 2023"]
 
 //Read the data
-d3.csv("https://raw.githubusercontent.com/Insight-Crime/ic_datos/main/violencias_haiti/choleraTimeline.csv",
+d3.csv("https://raw.githubusercontent.com/Insight-Crime/ic_datos/main/violencias_haiti/choleraTimelineRawEs.csv",
 
   // When reading the csv, I must format variables:
   d => {
@@ -154,17 +154,17 @@ svgTLC.append('path')
       .attr('class', 'plot-title')
       .attr('x', '-40')
       .attr('y', '-80')
-      .text('The History of Cholera in Haiti')
+      .text('La historia del cólera en Haití')
 
   svgTLC.append('text')
       .attr('class', 'interactive-note')
       .attr('x', '550')
       .attr('y', '-45')
       .attr('font-face', 'italic')
-      .text('Hover over the circles')
+      .text('Pase el cursor sobre los círculos')
 
   svgTLC.append('circle')
-      .attr('cx', '395')
+      .attr('cx', '325')
       .attr('cy', '-50')
       .attr('r', '8')
       .attr("stroke", "#B31536")
@@ -175,26 +175,26 @@ svgTLC.append('path')
       .attr('x', '-20')
       .attr('y', '110')
       .attr('height', '60')
-      .attr('width', '110')
+      .attr('width', '115')
       .attr('fill', '#C8D0DA')
 
   svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '-15')
       .attr('y', '130')
-      .text('Oct 2010:')
+      .text('Octubre de 2010:')
 
   svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '-15')
       .attr('y', '145')
-      .text('Cholera outbreak')
+      .text('Comienza el brote')
 
   svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '-15')
       .attr('y', '160')
-      .text('begins')
+      .text('de cólera')
 
 
   svgTLC.append('rect')
@@ -208,46 +208,46 @@ svgTLC.append('path')
       .attr('class', 'annotations')
       .attr('x', '445')
       .attr('y', '190')
-      .text('Oct 2022:')
+      .text('Octubre de 2022:')
 
   svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '445')
       .attr('y', '205')
-      .text('After 3 years another')
+      .text('Después de 3 años')
 
   svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '445')
       .attr('y', '220')
-      .text('outbreak begins')
+      .text('comienza otro brote')
       
   svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '125')
       .attr('y', '230')
       .style('fill', '#B31536')
-      .text("Haiti's first cholera outbreak")
+      .text("Primer brote de cólera en Haití")
      
    svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '400')
       .attr('y', '255')
       .style('fill', '#11269B')
-      .text("No cases for")
+      .text("Ningún caso")
 
    svgTLC.append('text')
       .attr('class', 'annotations')
       .attr('x', '400')
       .attr('y', '270')
       .style('fill', '#11269B')
-      .text("three years")
+      .text("durante tres años")
 
     svgTLC.append("text") // source
       .attr('class', 'sources')
       .attr("x", -40)
       .attr("y", heightTLC + 50)
-      .html("Source: Various Open Sources")
+      .html("Fuente: Diversas fuentes abiertas")
   
     svgTLC.append("text") // IC logo
         .attr('class', 'ic-logo')

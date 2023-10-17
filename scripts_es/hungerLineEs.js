@@ -1,34 +1,33 @@
-
       // set the dimensions and margins of the graph
-      const marginKL = {top: 80, right: 30, bottom: 60, left: 60},
-          widthKL = 640 - marginKL.left - marginKL.right,
-          heightKL = 470 - marginKL.top - marginKL.bottom;
+      const marginHL = {top: 60, right: 30, bottom: 80, left: 65},
+          widthHL = 640 - marginHL.left - marginHL.right,
+          heightHL = 670 - marginHL.top - marginHL.bottom;
       
       // append the svg object to the body of the page
-      const svgKL = d3.select("#kidnapLine")
+      const svgHL = d3.select("#hLine")
         .append("svg")
-          .attr("width", widthKL + marginKL.left + marginKL.right)
-          .attr("height", heightKL + marginKL.top + marginKL.bottom)
+          .attr("width", widthHL + marginHL.left + marginHL.right)
+          .attr("height", heightHL + marginHL.top + marginHL.bottom)
         .append("g")
-          .attr("transform",`translate(${marginKL.left},${marginKL.top})`);
+          .attr("transform",`translate(${marginHL.left},${marginHL.top})`);
       
       //Read the data
-      d3.csv("https://raw.githubusercontent.com/Insight-Crime/ic_datos/main/violencias_haiti/kd_plot_data.csv",
+      d3.csv("https://raw.githubusercontent.com/Insight-Crime/ic_datos/main/violencias_haiti/hunger.csv",
       
         // When reading the csv, I must format variables:
         d => {
-            return {date : d.year, value : d.count}}).then(
-      
+            return {date : d.year, value : d.phase_4}}).then(
+
         // Now I can use this dataset:
         function(data) {
       
           // Add X axis --> it is a date format
           const x = d3.scaleLinear()
             .domain(d3.extent(data, d => d.date))
-            .range([ 0, widthKL ]);
-          svgKL.append("g")
+            .range([ 0, widthHL ]);
+          svgHL.append("g")
             .attr("class", "x-axis")
-            .attr("transform", `translate(0, ${heightKL})`)
+            .attr("transform", `translate(0, ${heightHL})`)
             .call(d3.axisBottom(x)
             .tickSizeInner(3)
             .tickSizeOuter(0)
@@ -37,17 +36,18 @@
       
           // Add Y axis
           const y = d3.scaleLinear()
-            .domain([ 1400, 1])
+            .domain([ 2000000, 1])
             //.domain(d3.extent(data, d => d.value))
-            .range([ 0, heightKL]);
-          svgKL.append("g")
+            .range([0, heightHL ]);
+          svgHL.append("g")
             .attr("class", "y-axis")
             .call(d3.axisLeft(y)
-            .tickSizeInner(-widthKL)
+            .tickSizeInner(-widthHL)
+            .tickValues([250000, 500000, 750000, 1000000, 1250000, 1500000, 1750000])
             .tickSizeOuter(0));
       
           // Add the line
-          svgKL.append("path")
+          svgHL.append("path")
             .datum(data)
             .attr('class', 'myPath')
             .attr("fill", "none")
@@ -55,62 +55,83 @@
               .x(d => x(d.date))
               .y(d => y(d.value))
               )
-              svgKL.append('text')
+              
+            svgHL.append('text')
               .attr('class', 'plot-title')
-              .attr('y', '-60')
-              .attr('x', '-40')
-              .text('Kidnappings in Haiti')
+              .attr('y', '-40')
+              .attr('x', '-60')
+              .text('Haitianos que padecen inseguridad alimentaria de')
   
-          svgKL.append('rect')
+            svgHL.append('text')
+              .attr('class', 'plot-title')
+              .attr('y', '-10')
+              .attr('x', '-60')
+              .text('emergencia')
+  
+          svgHL.append('rect')
               .attr('class', 'annotation-rect')
-              .attr('x', '291')
-              .attr('y', '0')
-              .attr('height', '40')
-              .attr('width', '191')
+              .attr('x', '140')
+              .attr('y', '20')
+              .attr('height', '70')
+              .attr('width', '295')
   
-          svgKL.append('text')
+          svgHL.append('text')
               .attr('class', 'annotations')
-              .attr('x', '475')
-              .attr('y', '15')
+              .attr('x', '430')
+              .attr('y', '40')
               .attr('text-anchor', 'end')
-              .text('1642% increase in kidnappings')
+              .text('Los haitianos que padecen niveles de inseguridad')
   
-          svgKL.append('text')
+          svgHL.append('text')
               .attr('class', 'annotations')
-              .attr('x', '475')
-              .attr('y', '35')
+              .attr('x', '430')
+              .attr('y', '60')
               .attr('text-anchor', 'end')
-              .text('from 2019 to 2022')
+              .text('alimentaria de emergencia han aumentado')
 
-        svgKL.append('text')
+            svgHL.append('text')
+                .attr('class', 'annotations')
+                .attr('x', '430')
+                .attr('y', '80')
+                .attr('text-anchor', 'end')
+                .text('un 250% entre 2019 y 2023')
+
+
+        svgHL.append('text')
             .attr('class', 'interactive-note')
             .attr('x', '550')
-            .attr('y', '-20')
-            .text('Hover over the circles')
+            .attr('y', '10')
+            .text('Pase el cursor sobre los círculos')
 
-          svgKL.append('circle')
-            .attr('cx', '405')
-            .attr('cy', '-25')
+        svgHL.append('circle')
+            .attr('cx', '335')
+            .attr('cy', '5')
             .attr('r', '4')
             .attr("stroke", "#11269B")
             .attr("stroke-width", 3)
             .attr("fill", "#FAFAFA")
 
   // footer
-  svgKL.append("text") // source
-      .attr('class', 'sources')
-      .attr("x", -40)
-      .attr("y", 380)
-      .html("Source: <a href='https://www.unodc.org/documents/data-and-analysis/toc/Haiti_assessment_UNODC.pdf' style='fill:#91273E; text-decoration: underline'>UNODC</a>")
-  
-  svgKL.append("text") // IC logo
+  svgHL.append("text") // source
+    .attr('class', 'sources')
+    .attr("x", -40)
+    .attr("y", 580)
+    .html("Fuente: <a href='https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156571/?iso3=HTI' style='fill:#91273E; text-decoration: underline'>Clasificación Integrada de las Fases</a>")
+
+  svgHL.append("text") // source
+    .attr('class', 'sources')
+    .attr("x", 13)
+    .attr("y", 600)
+    .html("<a href='https://www.ipcinfo.org/ipc-country-analysis/details-map/en/c/1156571/?iso3=HTI' style='fill:#91273E; text-decoration: underline'>de la Seguridad Alimentaria</a>")
+
+  svgHL.append("text") // IC logo
       .attr('class', 'ic-logo')
       .attr("x", 550)
-      .attr("y", 380)
+      .attr("y", 580)
       .text('insightcrime.org')
       
           // create a tooltip
-          const Tooltip = d3.select("#kidnapLine")
+          const Tooltip = d3.select("#hLine")
             .append("div")
             .style("opacity", 0)
             .attr("class", "tooltip")
@@ -118,34 +139,29 @@
             .style("border", "solid")
             .style("border-width", "2px")
             .style("padding", "5px")
-           
+      
             // Three function that change the tooltip when user hover / move / leave a cell
             const mouseover = function(event,d) {
               Tooltip
                 .style("opacity", 1)
-                d3.select(this)
-                  .style("stroke-width", 4)
-                  .style("r", 6)
             }
             const mousemove = function(event,d) {
               Tooltip
                 .style("left", `${event.layerX+10}px`)
                 .style("top", `${event.layerY}px`)
-                .html("Kidnappings: " + d3.format(',')(d.value) + "<br>" +
-                      "Year: " + d.date)
+                .html("Haitianos que padecen niveles" + "<br>" +
+                      "de hambre de emergencia: " + d3.format(',')(d.value) + "<br>" +
+                      "Año: " + d.date)
             }
             const mouseleave = function(event,d) {
               Tooltip
                 .style("opacity", 0)
-              d3.select(this)
-                .style("stroke-width", 3)
-                .style("r", 4)
             }
       
       
       
           // Add the points
-          svgKL
+          svgHL
             .append("g")
             .selectAll("dot")
             .data(data)

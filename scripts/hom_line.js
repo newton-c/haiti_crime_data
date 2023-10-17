@@ -13,7 +13,7 @@
           .attr("transform",`translate(${margin.left},${margin.top})`);
       
       //Read the data
-      d3.csv("https://raw.githubusercontent.com/newton-c/haiti_crime_data/main/data/hom_plot_data.csv",
+      d3.csv("https://raw.githubusercontent.com/Insight-Crime/ic_datos/main/violencias_haiti/hom_plot_data.csv",
       
         // When reading the csv, I must format variables:
         d => {

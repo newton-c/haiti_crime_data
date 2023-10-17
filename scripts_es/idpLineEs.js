@@ -1,34 +1,34 @@
 
       // set the dimensions and margins of the graph
-      const marginKL = {top: 80, right: 30, bottom: 60, left: 60},
-          widthKL = 640 - marginKL.left - marginKL.right,
-          heightKL = 470 - marginKL.top - marginKL.bottom;
+      const marginIL = {top: 80, right: 30, bottom: 60, left: 60},
+          widthIL = 640 - marginIL.left - marginIL.right,
+          heightIL = 450 - marginIL.top - marginIL.bottom;
       
       // append the svg object to the body of the page
-      const svgKL = d3.select("#kidnapLine")
+      const svgIL = d3.select("#idpLine")
         .append("svg")
-          .attr("width", widthKL + marginKL.left + marginKL.right)
-          .attr("height", heightKL + marginKL.top + marginKL.bottom)
+          .attr("width", widthIL + marginIL.left + marginIL.right)
+          .attr("height", heightIL + marginIL.top + marginIL.bottom)
         .append("g")
-          .attr("transform",`translate(${marginKL.left},${marginKL.top})`);
+          .attr("transform",`translate(${marginIL.left},${marginIL.top})`);
       
       //Read the data
-      d3.csv("https://raw.githubusercontent.com/Insight-Crime/ic_datos/main/violencias_haiti/kd_plot_data.csv",
+      d3.csv("https://raw.githubusercontent.com/Insight-Crime/ic_datos/main/violencias_haiti/idp_data.csv",
       
         // When reading the csv, I must format variables:
         d => {
-            return {date : d.year, value : d.count}}).then(
-      
+            return {date : d.year, value : d.conflict_internal_displacements}}).then(
+
         // Now I can use this dataset:
         function(data) {
       
           // Add X axis --> it is a date format
           const x = d3.scaleLinear()
             .domain(d3.extent(data, d => d.date))
-            .range([ 0, widthKL ]);
-          svgKL.append("g")
+            .range([ 0, widthIL ]);
+          svgIL.append("g")
             .attr("class", "x-axis")
-            .attr("transform", `translate(0, ${heightKL})`)
+            .attr("transform", `translate(0, ${heightIL})`)
             .call(d3.axisBottom(x)
             .tickSizeInner(3)
             .tickSizeOuter(0)
@@ -37,17 +37,17 @@
       
           // Add Y axis
           const y = d3.scaleLinear()
-            .domain([ 1400, 1])
+            .domain([110000, 1])
             //.domain(d3.extent(data, d => d.value))
-            .range([ 0, heightKL]);
-          svgKL.append("g")
+            .range([0, heightIL ]);
+          svgIL.append("g")
             .attr("class", "y-axis")
             .call(d3.axisLeft(y)
-            .tickSizeInner(-widthKL)
+            .tickSizeInner(-widthIL)
             .tickSizeOuter(0));
       
           // Add the line
-          svgKL.append("path")
+          svgIL.append("path")
             .datum(data)
             .attr('class', 'myPath')
             .attr("fill", "none")
@@ -55,97 +55,95 @@
               .x(d => x(d.date))
               .y(d => y(d.value))
               )
-              svgKL.append('text')
+              
+            svgIL.append('text')
               .attr('class', 'plot-title')
               .attr('y', '-60')
-              .attr('x', '-40')
-              .text('Kidnappings in Haiti')
+              .attr('x', '-60')
+              .text('Desplazados internos en Haití')
   
-          svgKL.append('rect')
+          svgIL.append('rect')
               .attr('class', 'annotation-rect')
-              .attr('x', '291')
-              .attr('y', '0')
+              .attr('x', '215')
+              .attr('y', '-5')
               .attr('height', '40')
-              .attr('width', '191')
+              .attr('width', '285')
   
-          svgKL.append('text')
+          svgIL.append('text')
               .attr('class', 'annotations')
-              .attr('x', '475')
-              .attr('y', '15')
+              .attr('x', '493')
+              .attr('y', '10')
               .attr('text-anchor', 'end')
-              .text('1642% increase in kidnappings')
+              .text('Aumento del 430% de los desplazados internos')
   
-          svgKL.append('text')
+          svgIL.append('text')
               .attr('class', 'annotations')
-              .attr('x', '475')
-              .attr('y', '35')
+              .attr('x', '493')
+              .attr('y', '30')
               .attr('text-anchor', 'end')
-              .text('from 2019 to 2022')
+              .text('entre 2019 y 2022')
+  
 
-        svgKL.append('text')
+        svgIL.append('text')
             .attr('class', 'interactive-note')
             .attr('x', '550')
             .attr('y', '-20')
-            .text('Hover over the circles')
+            .attr('font-face', 'italic')
+            .text('Pase el cursor sobre los círculos')
 
-          svgKL.append('circle')
-            .attr('cx', '405')
-            .attr('cy', '-25')
-            .attr('r', '4')
-            .attr("stroke", "#11269B")
-            .attr("stroke-width", 3)
-            .attr("fill", "#FAFAFA")
+        svgIL.append('circle')
+          .attr('cx', '335')
+          .attr('cy', '-25')
+          .attr('r', '4')
+          .attr("stroke", "#11269B")
+          .attr("stroke-width", 3)
+          .attr("fill", "#FAFAFA")
 
   // footer
-  svgKL.append("text") // source
+  svgIL.append("text") // source
       .attr('class', 'sources')
       .attr("x", -40)
-      .attr("y", 380)
-      .html("Source: <a href='https://www.unodc.org/documents/data-and-analysis/toc/Haiti_assessment_UNODC.pdf' style='fill:#91273E; text-decoration: underline'>UNODC</a>")
+      .attr("y", 360)
+      .html("Fuente: <a href='https://www.internal-displacement.org/database/displacement-data' style='fill:#91273E; text-decoration: underline'>IDMC</a>")
   
-  svgKL.append("text") // IC logo
+  svgIL.append("text") // IC logo
       .attr('class', 'ic-logo')
       .attr("x", 550)
-      .attr("y", 380)
+      .attr("y", 360)
       .text('insightcrime.org')
       
           // create a tooltip
-          const Tooltip = d3.select("#kidnapLine")
+          const Tooltip = d3.select("#idpLine")
             .append("div")
             .style("opacity", 0)
             .attr("class", "tooltip")
             .style("background-color", "white")
             .style("border", "solid")
             .style("border-width", "2px")
-            .style("padding", "5px")
-           
+            .style("border-radius", "0px")
+            .style("padding", "5px");
+      
             // Three function that change the tooltip when user hover / move / leave a cell
             const mouseover = function(event,d) {
               Tooltip
                 .style("opacity", 1)
-                d3.select(this)
-                  .style("stroke-width", 4)
-                  .style("r", 6)
             }
             const mousemove = function(event,d) {
               Tooltip
                 .style("left", `${event.layerX+10}px`)
                 .style("top", `${event.layerY}px`)
-                .html("Kidnappings: " + d3.format(',')(d.value) + "<br>" +
-                      "Year: " + d.date)
+                .html("Desplazados internos: " + d3.format(',')(d.value) + "<br>" +
+                      "Año: " + d.date)
             }
             const mouseleave = function(event,d) {
               Tooltip
                 .style("opacity", 0)
-              d3.select(this)
-                .style("stroke-width", 3)
-                .style("r", 4)
             }
       
       
       
           // Add the points
-          svgKL
+          svgIL
             .append("g")
             .selectAll("dot")
             .data(data)
@@ -160,7 +158,4 @@
               .on("mouseover", mouseover)
               .on("mousemove", mousemove)
               .on("mouseleave", mouseleave)
-
-        
       })
-
