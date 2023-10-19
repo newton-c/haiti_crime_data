@@ -31,8 +31,8 @@
             .call(d3.axisBottom(x)
             .tickSizeInner(3)
             .tickSizeOuter(0)
-            .tickValues([2019, 2020, 2021, 2022])
-            .ticks(4, "")); // format the numbers so there's no decimal or comma
+            .tickValues([2019, 2020, 2021, 2022, 2023])
+            .ticks(5, "")); // format the numbers so there's no decimal or comma
       
           // Add Y axis
           const y = d3.scaleLinear()

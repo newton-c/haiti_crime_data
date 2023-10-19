@@ -12,10 +12,10 @@ const svgTLC = d3.select("#timelineCholera")
   .append("g")
     .attr("transform",`translate(${marginTLC.left},${marginTLC.top})`);
 
-const filterValues = ["October 20, 2010", "2011", "2012",
+const filterValues = ["20 de octubre de 2010", "2011", "2012",
   "2013", "2014", "2015", "2016", "2017", "2018", "2019",
-  "October 2022", "November 5, 2022", "April 2023",
-  "June 13, 2023", "September 30, 2023"]
+  "Octubre de 2022", "5 de noviembre de 2022", "Abril de 2023",
+  "13 de junio de 2023", "30 de septiembre de 2023"]
 
 //Read the data
 d3.csv("https://raw.githubusercontent.com/Insight-Crime/ic_datos/main/violencias_haiti/choleraTimelineRawEs.csv",
@@ -254,4 +254,6 @@ svgTLC.append('path')
         .attr("x", 540)
         .attr("y", heightTLC + 50)
         .text('insightcrime.org')
+
+    console.log(d3.select("body").selectAll("div").data(data).enter());
 })

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://d3js.org/d3.v6.js"></script>
+</head>
+<link rel="stylesheet" href="scripts/haiti.css">
+<body>
+    <center>
+    <h1>The Human Costs of the Crisis in Haiti</h1>
+    <p>Children around Haiti are supposed to be returning 
+      to their classrooms, but there is a problem: the 
+      schools are already full. But not of students. As 
+      gang violence has caused massive displacement in 
+      Haiti, people have flooded schools looking for 
+      shelter as refugees in their own country.
+    </p>
+    <p>The number of Haitians internally displaced due to conflicts rose 430% from 2021 to 2022 -- the largest increase the region has witnessed since data started being collected in 2018. With 106,000 people displaced in 2022, Haiti saw more displacements than much larger countries with potent criminal groups, such as Brazil and Mexico, have suffered in recent years.
+    </p>
+    <div id="idpLine"></div>
+    <script src="scripts_es/idpLineEs.js"> </script>
+     <!-- <img src="figs/idps.png" style="width:600px;height:450px"> -->
+      <p>This increase bucks the regional trend; most countries in Latin America and the Caribbean saw fewer people internally displaced last year.
+
+     </p>
+    <!--<div id="idp_circles" ></div>
+    <script src="scripts_es/idpCircles.js"></script>-->
+    <div id="idpBar" ></div>
+    <script src="scripts_es/idpBarEs.js"></script>
+    <!-- <img src="figs/idp_circles.png" style="width:600px;height:450px">-->
+     <p>The displacements are largely caused by a spike in violence following the assassination of President Jovenel Moïse in July 2021. With the state losing control, gangs, such as <a href = "https://insightcrime.org/haiti-organized-crime-news/400-mawozo/">400 Mawozo</a> 
+      and G9 and Family (G9 an fanmi – <a href="https://insightcrime.org/haiti-organized-crime-news/g9-family-profile/">G9</a>) are fighting for territory and trying to intimidate civilians into cooperating.
+
+    </p>
+    <p style="text-align: center"><i>[QUOTE ON GANG VIOLENCE AND DISPLACEMENT]</i></p>
+    <div id="hom_line"></div>
+    <script src="scripts_es/hom_line_es.js"> </script>
+
+   <!-- <img src="figs/homicides.png" style="width:600px;height:450px">-->
+    <p> Much of the violence is concentrated in Haiti's most underdeveloped areas, such as the Port-au-Prince suburb, Cité Soleil.
+    </p>
+    <p class="plot-title">Gang Violence in Haiti</p>
+    <iframe src="figs/m.html" style="width:640px; height:450px"></iframe>
+    <div id="footer" style="width:640px">
+      <!--add sources below-->
+      <span style="float:left; font-family: Roboto; color:#9D9D9D; size: 15px">
+          Source: <a href="https://acleddata.com/data-export-tool/">ALCED</a> 
+      </span>
+       <!--don't modify anything below this line-->
+      <span style="float:right; font-family: Noto Serif; color:#a5a5a5; size: 15px">
+           <i>
+              i&hairsp;n&hairsp;s&hairsp;i&hairsp;g&hairsp;h&hairsp;t&hairsp;c&hairsp;r&hairsp;i&hairsp;m&hairsp;e&hairsp;.&hairsp;o&hairsp;r&hairsp;g
+          </i>
+      </span>
+   </div>
+   <br>
+   <p>But homicides only tell part of the story of the suffering caused by Haiti's criminal takeover. Kidnappings have long been used by gangs to gain <a href="https://insightcrime.org/news/kidnapping-foreigners-evolution-haiti-security-crisis/">ransoms</a>
+      and flex their <a href="https://insightcrime.org/news/kidnappings-of-un-staff-diplomats-in-haiti-could-help-police-get-more-funding/">political influence</a>.
+      Kidnappings have been consistently rising and surged following Moïse's assassination, according to data by the UNODC.
+     </p>
+     <!--<img src="figs/kidnappings.png" style="width:600px;height:450px">-->
+     
+    <div id="kidnapLine"></div>
+    <script src="scripts_es/kidnapLineEs.js"> </script>
+     <p>An
+      An Integrated Food Security Phase Classification analysis estimates that 1,807,955 Haitians are experiencing emergency levels of hunger. In areas like Cité Solei, which has become a <a href=https://insightcrime.org/news/g9-gpep-two-gang-alliances-tearing-haiti-apart>battleground for gangs</a>
+      , a fifth of the population faces emergency-level starvation, while another 35% face a hunger crisis.
+
+    </p>
+    <p>
+      This too has been sparked by the current crisis. Hunger has leveled off before the assassination of Moïse, but has accelerated since.
+
+    </p>
+    <div id="hLine"></div>
+    <script src="scripts_es/hungerLineEs.js"></script>
+      <!--  <img src="figs/hunger.png" style="width:600px;height:450px">-->
+    <p>And despite going three years without a case of cholera, cases began surging again last year. The World Health Organization estimates that there have been almost 60,000 cases of the disease since it reappeared. Cholera is nearly absent from the rest of Latin America and the Caribbean.
+
+        </p>
+
+        <div id="timelineCholera"></div>
+        <script src="scripts_es/timelineCholeraEs.js"> </script>
+
+
+    <p>
+      The medical crisis is exacerbated by a lack of available medical care. Fearing for their lives amid the gang violence, doctors and patients have <a href="https://www.lenouvelliste.com/article/244226/les-balles-font-fuir-malades-et-medecins-du-sanatorium-de-port-au-prince">abandoned a hospital</a> 
+      in Port-au-Prince's Carrefour-Feuilles.
+
+    </p>
+   <!-- <div style="margin-bottom: 30px">
+      <text class="plot-title" style="float: left">Suspected Cholera Cases in Haiti</text><br>
+      <text class="plot-subtitle" style="float: left;">Total cases from the 2022 outbreak until September 30, 2023</text>
+    </div>
+     <select id="selectButton"></select>
+    <button style="margin-top 0px; margin-right: 7px" onclick="update('Male')">Male</button>
+    <button style="margin-top 0px; margin-right: 7px" onclick="update('Female')">Female</button>
+    <button autofocus style="margin-top 0px; margin-right: 7px" onclick="update('Total')">Total</button>-->
+    <div id="choleraBar"></div>
+     <!--<script src="scripts_es/choleraBar.js"></script> -->
+    <script src="scripts_es/choleraBar2.js"></script>
+    <p>
+      As gangs fight for control, they have turned to the most horrid of tactics. Gangs have begun the “systematic use of rape against women and girls as a weapon of war,” according to the 
+<a href="https://news.un.org/en/story/2022/11/1131042">United Nations</a>.
+    </p>
+    
+
+  <p>
+    And now, Jimmy Chérizier, alias "<a href="https://insightcrime.org/haiti-organized-crime-news/jimmy-cherizier-alias-barbecue/">Barbecue</a>," G9's leader, has declared his intentions of taking over the country.
+
+  </p>
+  <blockquote class="twitter-tweet">
+    <p lang="en" dir="ltr">Yesterday the gang leader Jimmy &#39;Barbecue&#39; Chérizier led a demonstration in Port-au-Prince to support the construction of a canal on the Massacre river.<br><br>Chérizier also announced the launch of a campaign to overthrow the Haitian interim govt led by PM <a href="https://twitter.com/DrArielHenry?ref_src=twsrc%5Etfw">@DrArielHenry
+    </a>. 🧵 1/7 <a href="https://t.co/k0A8zus04z">pic.twitter.com/k0A8zus04z</a>
+  </p>&mdash; Diego Da Rin (@diego_darin) <a href="https://twitter.com/diego_darin/status/1704078779423826397?ref_src=twsrc%5Etfw">September 19, 2023</a></blockquote>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+    
+  <p><!--
+    Haiti's gangs are currently focused on crime and incapable of a complete takeover of the government,
+    according to Gédéon Jean, executive director at the Center for Analysis and Research in Human Rights 
+    (Centre d’analyse et de recherche en droits de l'homme - CARDH). But the political challenges often lead to more violence. [Principalement les gangs s’intéressent aux crimes dans une perspective économique. Certains sont dans la criminalité transnationale.||
+    Pour le moment, une prise de pouvoir par des criminels est impossible.
+    Les études du CARDH sur la criminalité indiquent une corrélation entre des luttes politiques et l’exacerbation de la violence. ] 
+  </p>
+  <p>
+    But gangs are becoming more organized and are refining their strategies, Jean warned.
+    [Cependant, le CARDH constate qu’ils tendent vers une meilleure organisation et développent des stratégies de renforcement.]
+    "If this dynamic is not stopped, they could become actors negotiating in politics," he told InSight Crime.
+    [Si cette dynamique n’est pas stoppée, ils pourraient devenir des acteurs avec qui il faudra négocier politiquement.
+    ]-->
+  </p>
+    </center>
+</body>
+</html>
